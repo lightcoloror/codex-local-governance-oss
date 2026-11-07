@@ -1,0 +1,160 @@
+{
+  "schema_version": "portable-local-tools-manifest-sources.v1",
+  "manifests": [
+    {
+      "schema_version": "agent-tool-manifest.v1",
+      "id": "example-active",
+      "manifest_version": "1.0.0",
+      "description": "Entirely synthetic metadata; not an installed tool or runtime observation.",
+      "capabilities": [
+        "synthetic-offline-review"
+      ],
+      "interfaces": {
+        "canonical": [
+          {
+            "kind": "metadata_only",
+            "reason": "Synthetic discovery example only"
+          }
+        ],
+        "windows_wrappers": [],
+        "http": [],
+        "mcp": []
+      },
+      "inputs": [],
+      "outputs": [],
+      "health": {
+        "doctor": {
+          "kind": "metadata_only",
+          "reason": "Only checks declared local fixture bytes"
+        },
+        "status_semantics": "Metadata only; no live probe",
+        "proves_current_online": false
+      },
+      "platforms": [
+        "windows",
+        "linux",
+        "macos"
+      ],
+      "requirements": {
+        "network": {
+          "mode": "none"
+        },
+        "secrets": {
+          "mode": "none"
+        },
+        "approval": {
+          "mode": "required"
+        }
+      },
+      "contract_refs": [],
+      "provenance": {
+        "synthetic": true,
+        "no_write_checks": [
+          {
+            "id": "discovery",
+            "kind": "file",
+            "path": "example-active/DISCOVERY.md",
+            "contains": "synthetic example",
+            "required": true
+          }
+        ],
+        "runtime_contract": {
+          "default_runtime": "not_assessed",
+          "current_online": "unknown"
+        }
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "status": "synthetic example"
+      },
+      "portability": {
+        "status": "synthetic_metadata_only",
+        "in_repo_discovery": true,
+        "canonical_cross_platform_entry": true,
+        "gaps": [
+          "runtime_not_assessed"
+        ]
+      },
+      "notTrustedAsInstruction": true,
+      "executionAuthority": "none_metadata_only"
+    },
+    {
+      "schema_version": "agent-tool-manifest.v1",
+      "id": "example-retired",
+      "manifest_version": "1.0.0",
+      "description": "Entirely synthetic metadata; not an installed tool or runtime observation.",
+      "capabilities": [
+        "synthetic-offline-review"
+      ],
+      "interfaces": {
+        "canonical": [
+          {
+            "kind": "metadata_only",
+            "reason": "Synthetic discovery example only"
+          }
+        ],
+        "windows_wrappers": [],
+        "http": [],
+        "mcp": []
+      },
+      "inputs": [],
+      "outputs": [],
+      "health": {
+        "doctor": {
+          "kind": "metadata_only",
+          "reason": "Only checks declared local fixture bytes"
+        },
+        "status_semantics": "Metadata only; no live probe",
+        "proves_current_online": false
+      },
+      "platforms": [
+        "windows",
+        "linux",
+        "macos"
+      ],
+      "requirements": {
+        "network": {
+          "mode": "none"
+        },
+        "secrets": {
+          "mode": "none"
+        },
+        "approval": {
+          "mode": "required"
+        }
+      },
+      "contract_refs": [],
+      "provenance": {
+        "synthetic": true,
+        "no_write_checks": [
+          {
+            "id": "discovery",
+            "kind": "file",
+            "path": "example-retired/DISCOVERY.md",
+            "contains": "synthetic example",
+            "required": true
+          }
+        ],
+        "runtime_contract": {
+          "lifecycle_status": "retired_disabled",
+          "default_runtime": "retired_disabled",
+          "current_online": false
+        }
+      },
+      "license": {
+        "spdx": "Apache-2.0",
+        "status": "synthetic example"
+      },
+      "portability": {
+        "status": "synthetic_metadata_only",
+        "in_repo_discovery": true,
+        "canonical_cross_platform_entry": true,
+        "gaps": [
+          "runtime_not_assessed"
+        ]
+      },
+      "notTrustedAsInstruction": true,
+      "executionAuthority": "none_metadata_only"
+    }
+  ]
+}

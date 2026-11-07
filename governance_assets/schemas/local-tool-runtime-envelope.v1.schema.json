@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "contract_version", "closure_run_id", "run_id", "actual_executor", "model", "reasoning", "issued_at", "capsule", "payload_sha256"],
+  "properties": {
+    "schema_version": {"const": "local-tool-runtime-envelope.v1"},
+    "contract_version": {"const": "small-model-task-capsule-foundation.v1"},
+    "closure_run_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,119}$"},
+    "run_id": {"type": "string", "minLength": 3, "maxLength": 120},
+    "actual_executor": {"enum": ["Codex (GPT-5.6 Luna)", "Codex (GPT-5.6 Terra)", "Codex (GPT-5.6 Sol)"]},
+    "model": {"enum": ["gpt-5.6-luna", "gpt-5.6-terra", "gpt-5.6-sol"]},
+    "reasoning": {"enum": ["low", "medium", "high", "xhigh", "max"]},
+    "issued_at": {"type": "string", "minLength": 10},
+    "capsule": {"$ref": "#/$defs/ref"},
+    "payload_sha256": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "ref": {
+      "type": "object", "additionalProperties": false, "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string"}, "sha256": {"$ref": "#/$defs/sha"}}
+    }
+  }
+}

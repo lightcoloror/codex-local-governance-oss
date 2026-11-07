@@ -1,0 +1,356 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/schemas/agent-tool-catalog.v1.schema.json",
+  "title": "Derived Local Tools Agent Discovery Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generated_at",
+    "semantic_sha256",
+    "source_fingerprints",
+    "front_door",
+    "tool_count",
+    "coverage",
+    "invariants",
+    "tools"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "agent-tool-catalog.v1"
+    },
+    "generated_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "semantic_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "source_fingerprints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tool_registry_sha256",
+        "source_inventory_sha256",
+        "owner_routing_sha256",
+        "rcp_manifest_schema_sha256",
+        "rcp_manifest_loader_sha256",
+        "rcp_commit",
+        "catalog_schema_sha256"
+      ],
+      "properties": {
+        "tool_registry_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "source_inventory_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "owner_routing_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "rcp_manifest_schema_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "rcp_manifest_loader_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "rcp_commit": {
+          "$ref": "#/$defs/sha1"
+        },
+        "catalog_schema_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "front_door": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      },
+      "required": [
+        "list",
+        "find",
+        "show",
+        "card",
+        "doctor",
+        "validate"
+      ]
+    },
+    "tool_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "discoverable_minimum",
+        "agent_usable_complete",
+        "owner_gap",
+        "core_tool_count",
+        "core_agent_usable_complete"
+      ],
+      "properties": {
+        "discoverable_minimum": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "agent_usable_complete": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "owner_gap": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "core_tool_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "core_agent_usable_complete": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "invariants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registry_is_authoritative",
+        "catalog_is_rebuildable_derived_metadata",
+        "metadata_authorizes_execution",
+        "historical_or_synthetic_success_proves_real_usage",
+        "registration_proves_current_online",
+        "silent_fallback_allowed"
+      ],
+      "properties": {
+        "registry_is_authoritative": {
+          "const": true
+        },
+        "catalog_is_rebuildable_derived_metadata": {
+          "const": true
+        },
+        "metadata_authorizes_execution": {
+          "const": false
+        },
+        "historical_or_synthetic_success_proves_real_usage": {
+          "const": false
+        },
+        "registration_proves_current_online": {
+          "const": false
+        },
+        "silent_fallback_allowed": {
+          "const": false
+        }
+      }
+    },
+    "tools": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/tool"
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "sha1": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "readiness_dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "source_ref",
+        "checked_at",
+        "ttl_hours"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checked_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ttl_hours": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract_ready",
+        "runtime_ready",
+        "fresh_e2e_pass",
+        "real_usage_proof",
+        "current_online"
+      ],
+      "properties": {
+        "contract_ready": {
+          "$ref": "#/$defs/readiness_dimension"
+        },
+        "runtime_ready": {
+          "$ref": "#/$defs/readiness_dimension"
+        },
+        "fresh_e2e_pass": {
+          "$ref": "#/$defs/readiness_dimension"
+        },
+        "real_usage_proof": {
+          "$ref": "#/$defs/readiness_dimension"
+        },
+        "current_online": {
+          "$ref": "#/$defs/readiness_dimension"
+        }
+      }
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "tool_id",
+        "purpose",
+        "task_phrases",
+        "use_when",
+        "avoid_or_boundary",
+        "stable_front_doors",
+        "interface_contracts",
+        "discovery",
+        "manifest",
+        "readiness",
+        "safety",
+        "recovery",
+        "synthetic_example",
+        "owner",
+        "coverage",
+        "notTrustedAsInstruction",
+        "executionAuthority"
+      ],
+      "properties": {
+        "tool_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_phrases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "use_when": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "avoid_or_boundary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "stable_front_doors": {
+          "type": "object"
+        },
+        "interface_contracts": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "command",
+              "parameters",
+              "output_schema",
+              "exit_codes",
+              "timeout_seconds",
+              "network",
+              "writes",
+              "runtime_probe",
+              "execution_authorized"
+            ]
+          }
+        },
+        "discovery": {
+          "type": "object"
+        },
+        "manifest": {
+          "type": "object"
+        },
+        "readiness": {
+          "$ref": "#/$defs/readiness"
+        },
+        "safety": {
+          "type": "object"
+        },
+        "recovery": {
+          "type": "object"
+        },
+        "synthetic_example": {
+          "type": "object",
+          "required": [
+            "task",
+            "expected_tool_id",
+            "expected_action",
+            "uses_real_data",
+            "execution_authorized"
+          ]
+        },
+        "owner": {
+          "type": "object"
+        },
+        "coverage": {
+          "type": "object",
+          "required": [
+            "level",
+            "core_tool",
+            "tool_side_manifest",
+            "tool_side_discovery",
+            "tool_side_no_write_doctor",
+            "synthetic_task_card",
+            "gaps"
+          ]
+        },
+        "notTrustedAsInstruction": {
+          "const": true
+        },
+        "executionAuthority": {
+          "const": "none_metadata_only"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "local-tool-task-receipt.v1",
+  "contract_version": "small-model-task-capsule-foundation.v1",
+  "closure_run_id": "synthetic-review-run",
+  "task_id": "synthetic-content-review",
+  "status": "passed",
+  "capsule": {
+    "path": "receipt-inputs/capsule.json",
+    "sha256": "33df8af044e4244287ffa69473a61522c2e70592b4e02d184e15d4edfce4779a"
+  },
+  "execution_slice": {
+    "path": "receipt-inputs/slice.json",
+    "sha256": "4b2c33a13b9e1afdc8ff2cc2adbcf2d6d63be0f196914a315efc46ba57e64e10"
+  },
+  "handoff": {
+    "path": "receipt-inputs/handoff.json",
+    "sha256": "455b739cfde154404643e0db9f5d1137a37484d0acb64305e7d3d270ee1ff78f"
+  },
+  "runtime_envelope": {
+    "path": "receipt-inputs/envelope.json",
+    "sha256": "ec5387d1e70b5653f2ca9580280afc98a00e7171aaaa890dae00285927badca1"
+  },
+  "stage_receipt": {
+    "stage_id": "static-doctor",
+    "status": "passed"
+  },
+  "failure_point": null,
+  "resume_entry": "Review synthetic metadata again; no real execution",
+  "approval_boundary": "native_gate_preserved",
+  "selected_tool_id": "example-active",
+  "commands_run": [
+    "synthetic-only metadata observation"
+  ],
+  "exit_codes": [
+    0
+  ],
+  "observed_schema_versions": [
+    "agent-tool-manifest.v1"
+  ],
+  "decision": "passed",
+  "boundary_check": {
+    "network": false,
+    "external_write": false,
+    "service_started": false,
+    "fallback_used": false
+  },
+  "metrics": {
+    "loaded_ref_count": 4,
+    "loaded_bytes": 155,
+    "tool_call_count": 1
+  },
+  "payload_sha256": "1ad5c140e3145739f8aa7a4bc06e8158fed440359bdf91c09d34704c33735420"
+}

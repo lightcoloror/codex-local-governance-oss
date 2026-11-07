@@ -1,0 +1,7 @@
+{
+  "schema_version": "local-tool-task-request.v1",
+  "task_id": "synthetic-content-review",
+  "objective": "Review a fictional content candidate locally",
+  "expected_tool_id": "example-active",
+  "input_refs": []
+}

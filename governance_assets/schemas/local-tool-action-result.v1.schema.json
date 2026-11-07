@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "task_id", "tool_id", "action_id", "status", "reason_code", "launcher_exit_code", "tool_exit_code", "duration_ms", "action_profile_sha256", "stdout", "stderr", "result_markers", "authority", "workspace_output", "boundary_check", "execution_authorized", "payload_sha256"],
+  "properties": {
+    "schema_version": {"const": "local-tool-action-result.v1"},
+    "task_id": {"type": "string"},
+    "tool_id": {"type": "string"},
+    "action_id": {"type": "string"},
+    "status": {"enum": ["passed", "blocked"]},
+    "reason_code": {"enum": ["ok", "nonzero_exit", "action_timeout", "invalid_result", "output_violation"]},
+    "launcher_exit_code": {"enum": [0, 3]},
+    "tool_exit_code": {"type": "integer"},
+    "duration_ms": {"type": "integer", "minimum": 0},
+    "action_profile_sha256": {"$ref": "#/$defs/sha"},
+    "stdout": {"$ref": "#/$defs/stream"},
+    "stderr": {"$ref": "#/$defs/stream"},
+    "result_markers": {"type": "object", "maxProperties": 8, "additionalProperties": true},
+    "authority": {
+      "type": "object", "additionalProperties": false,
+      "required": ["authority_class", "execution_authorized", "approval_required_for_real_action"],
+      "properties": {
+        "authority_class": {"enum": ["bounded_action", "preflight_only"]},
+        "execution_authorized": {"const": false},
+        "approval_required_for_real_action": {"type": "boolean"}
+      }
+    },
+    "workspace_output": {
+      "type": "object", "additionalProperties": false, "required": ["root", "file_count", "total_bytes", "content_sha256"],
+      "properties": {"root": {"const": "action-output"}, "file_count": {"type": "integer", "minimum": 0}, "total_bytes": {"type": "integer", "minimum": 0}, "content_sha256": {"$ref": "#/$defs/sha"}}
+    },
+    "boundary_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["network", "external_write", "workspace_output_only", "service_started", "fallback_used", "model_retry"],
+      "properties": {"network": {"const": false}, "external_write": {"const": false}, "workspace_output_only": {"const": true}, "service_started": {"const": false}, "fallback_used": {"const": false}, "model_retry": {"const": false}}
+    },
+    "execution_authorized": {"const": false},
+    "payload_sha256": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "stream": {"type": "object", "additionalProperties": false, "required": ["bytes", "sha256"], "properties": {"bytes": {"type": "integer", "minimum": 0}, "sha256": {"$ref": "#/$defs/sha"}}}
+  }
+}

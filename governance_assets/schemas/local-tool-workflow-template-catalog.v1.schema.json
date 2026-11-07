@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "templates", "execution_authorized"],
+  "properties": {
+    "schema_version": {"const": "local-tool-workflow-template-catalog.v1"},
+    "execution_authorized": {"const": false},
+    "templates": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {"$ref": "#/$defs/template"}
+    }
+  },
+  "$defs": {
+    "template": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["template_id", "objective", "source_kind", "stages", "final_artifacts", "boundaries", "stop_condition"],
+      "properties": {
+        "template_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{4,95}$"},
+        "objective": {"type": "string", "minLength": 5, "maxLength": 1000},
+        "source_kind": {"enum": ["synthetic_fixture", "public_fixture", "deidentified_local"]},
+        "stages": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 8,
+          "items": {"$ref": "#/$defs/stage"}
+        },
+        "final_artifacts": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {"$ref": "#/$defs/artifact"}
+        },
+        "boundaries": {"$ref": "#/$defs/boundaries"},
+        "stop_condition": {"type": "string", "minLength": 5, "maxLength": 500}
+      }
+    },
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage_id", "tool_id", "action_id", "objective", "depends_on", "recovery_policy", "max_attempts"],
+      "properties": {
+        "stage_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,63}$"},
+        "tool_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$"},
+        "action_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{4,95}$"},
+        "objective": {"type": "string", "minLength": 5, "maxLength": 1000},
+        "depends_on": {"type": "array", "maxItems": 7, "uniqueItems": true, "items": {"type": "string"}},
+        "recovery_policy": {"enum": ["retry_once_local", "escalate_terra", "fail_closed"]},
+        "max_attempts": {"type": "integer", "minimum": 1, "maximum": 2}
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage_id", "path", "json_checks"],
+      "properties": {
+        "stage_id": {"type": "string"},
+        "path": {"type": "string", "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$)).+$"},
+        "json_checks": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "equals"],
+            "properties": {"path": {"type": "string", "minLength": 1}, "equals": {}}
+          }
+        }
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["synthetic_or_public_only", "network", "service_start", "external_write", "provider_call", "publication", "silent_fallback"],
+      "properties": {
+        "synthetic_or_public_only": {"const": true},
+        "network": {"const": false},
+        "service_start": {"const": false},
+        "external_write": {"const": false},
+        "provider_call": {"const": false},
+        "publication": {"const": false},
+        "silent_fallback": {"const": false}
+      }
+    }
+  }
+}

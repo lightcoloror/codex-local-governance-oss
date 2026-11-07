@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "task_id", "selected_tool_id", "selected_action_id", "launcher", "exit_code", "action_result", "observed_schema_versions", "decision", "boundary_check", "authority_check"],
+  "properties": {
+    "schema_version": {"const": "local-tool-action-observation.v1"},
+    "task_id": {"type": "string"},
+    "selected_tool_id": {"type": "string"},
+    "selected_action_id": {"type": "string"},
+    "launcher": {
+      "type": "object", "additionalProperties": false, "required": ["executable", "argv"],
+      "properties": {"executable": {"const": "python"}, "argv": {"type": "array", "minItems": 5, "maxItems": 8, "items": {"type": "string"}}}
+    },
+    "exit_code": {"type": "integer"},
+    "action_result": {"$ref": "#/$defs/ref"},
+    "observed_schema_versions": {"type": "array", "maxItems": 8, "uniqueItems": true, "items": {"type": "string"}},
+    "decision": {"enum": ["passed", "blocked", "escalated"]},
+    "authority_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["authority_class", "real_action_requested", "real_action_decision", "approval_required"],
+      "properties": {
+        "authority_class": {"enum": ["bounded_action", "preflight_only"]},
+        "real_action_requested": {"type": "boolean"},
+        "real_action_decision": {"enum": ["not_requested", "forbidden"]},
+        "approval_required": {"type": "boolean"}
+      }
+    },
+    "boundary_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["network", "external_write", "workspace_output_only", "service_started", "fallback_used", "model_retry"],
+      "properties": {"network": {"const": false}, "external_write": {"const": false}, "workspace_output_only": {"const": true}, "service_started": {"const": false}, "fallback_used": {"const": false}, "model_retry": {"const": false}}
+    }
+  },
+  "$defs": {
+    "ref": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"type": "string", "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$)).+$"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}
+  }
+}

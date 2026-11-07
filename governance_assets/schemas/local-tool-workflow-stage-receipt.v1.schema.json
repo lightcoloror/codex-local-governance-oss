@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "workflow_id", "run_id", "stage_id", "tool_id", "action_id", "status", "attempt_count", "selected_attempt", "action_capsule", "action_result", "output_root", "recovery", "checked_at", "boundary_check", "execution_authorized", "payload_sha256"],
+  "properties": {
+    "schema_version": {"const": "local-tool-workflow-stage-receipt.v1"},
+    "workflow_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "stage_id": {"type": "string"},
+    "tool_id": {"type": "string"},
+    "action_id": {"type": "string"},
+    "status": {"enum": ["completed", "blocked", "needs_model_escalation"]},
+    "attempt_count": {"type": "integer", "minimum": 1, "maximum": 2},
+    "selected_attempt": {"type": "integer", "minimum": 1, "maximum": 2},
+    "action_capsule": {"$ref": "#/$defs/ref"},
+    "action_result": {"$ref": "#/$defs/ref"},
+    "output_root": {"type": "string"},
+    "recovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "applied", "reason_code", "next_action"],
+      "properties": {
+        "policy": {"enum": ["retry_once_local", "escalate_terra", "fail_closed"]},
+        "applied": {"type": "boolean"},
+        "reason_code": {"type": ["string", "null"]},
+        "next_action": {"enum": ["continue", "resume", "escalate_terra", "stop"]}
+      }
+    },
+    "checked_at": {"type": "string", "minLength": 10},
+    "boundary_check": {"type": "object"},
+    "execution_authorized": {"const": false},
+    "payload_sha256": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "ref": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"$ref": "#/$defs/sha"}}}
+  }
+}

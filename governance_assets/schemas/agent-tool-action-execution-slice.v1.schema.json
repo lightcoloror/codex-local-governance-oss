@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "tool_id", "action_id", "interface_id", "launcher", "io", "boundaries", "authority_class", "approval_required_for_real_action", "timeout_seconds", "error_codes", "registry_entry_sha256", "discovery_sha256", "catalog_semantic_sha256", "action_catalog_sha256", "action_profile_sha256", "full_card_ref", "payload_sha256"],
+  "properties": {
+    "schema_version": {"const": "agent-tool-action-execution-slice.v1"},
+    "tool_id": {"type": "string"},
+    "action_id": {"type": "string"},
+    "interface_id": {"type": "string"},
+    "launcher": {
+      "type": "object", "additionalProperties": false, "required": ["executable", "argv"],
+      "properties": {
+        "executable": {"const": "python"},
+        "argv": {
+          "type": "array", "minItems": 5, "maxItems": 8,
+          "prefixItems": [
+            {"const": "scripts/local_tools.py"}, {"const": "task-capsule"}, {"const": "execute"}, {"const": "--capsule"}
+          ],
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "io": {
+      "type": "object", "additionalProperties": false, "required": ["input", "output"],
+      "properties": {"input": {"const": "allowlisted_action_profile"}, "output": {"const": "local-tool-action-result.v1"}}
+    },
+    "boundaries": {"type": "array", "minItems": 1, "maxItems": 4, "uniqueItems": true, "items": {"type": "string"}},
+    "authority_class": {"enum": ["bounded_action", "preflight_only"]},
+    "approval_required_for_real_action": {"type": "boolean"},
+    "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 60},
+    "error_codes": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true, "items": {"type": "string"}},
+    "registry_entry_sha256": {"$ref": "#/$defs/sha"},
+    "discovery_sha256": {"$ref": "#/$defs/sha"},
+    "catalog_semantic_sha256": {"$ref": "#/$defs/sha"},
+    "action_catalog_sha256": {"$ref": "#/$defs/sha"},
+    "action_profile_sha256": {"$ref": "#/$defs/sha"},
+    "full_card_ref": {"type": "string", "pattern": "^agent-tool-catalog://[a-f0-9]{64}/"},
+    "payload_sha256": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {"sha": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+}

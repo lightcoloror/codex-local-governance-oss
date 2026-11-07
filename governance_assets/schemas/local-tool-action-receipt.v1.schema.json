@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "contract_version", "closure_run_id", "task_id", "status", "capsule", "execution_slice", "handoff", "runtime_envelope", "action_result", "stage_receipt", "failure_point", "resume_entry", "approval_boundary", "selected_tool_id", "selected_action_id", "launcher", "exit_code", "tool_exit_code", "decision", "boundary_check", "authority_check", "metrics", "payload_sha256"],
+  "properties": {
+    "schema_version": {"const": "local-tool-action-receipt.v1"},
+    "contract_version": {"const": "small-model-task-capsule-foundation.v1"},
+    "closure_run_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,119}$"},
+    "task_id": {"type": "string"},
+    "status": {"enum": ["passed", "blocked", "escalated"]},
+    "capsule": {"$ref": "#/$defs/ref"},
+    "execution_slice": {"$ref": "#/$defs/ref"},
+    "handoff": {"$ref": "#/$defs/ref"},
+    "runtime_envelope": {"$ref": "#/$defs/ref"},
+    "action_result": {"$ref": "#/$defs/ref"},
+    "stage_receipt": {
+      "type": "object", "additionalProperties": false, "required": ["stage_id", "status"],
+      "properties": {"stage_id": {"const": "allowlisted-action"}, "status": {"enum": ["passed", "blocked", "escalated"]}}
+    },
+    "failure_point": {"type": ["string", "null"]},
+    "resume_entry": {"type": "string", "minLength": 5, "maxLength": 512},
+    "approval_boundary": {"const": "native_gate_preserved"},
+    "selected_tool_id": {"type": "string"},
+    "selected_action_id": {"type": "string"},
+    "launcher": {"type": "object"},
+    "exit_code": {"type": "integer"},
+    "tool_exit_code": {"type": "integer"},
+    "decision": {"enum": ["passed", "blocked", "escalated"]},
+    "boundary_check": {"type": "object"},
+    "authority_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["authority_class", "real_action_requested", "real_action_decision", "approval_required"],
+      "properties": {
+        "authority_class": {"enum": ["bounded_action", "preflight_only"]},
+        "real_action_requested": {"type": "boolean"},
+        "real_action_decision": {"enum": ["not_requested", "forbidden"]},
+        "approval_required": {"type": "boolean"}
+      }
+    },
+    "metrics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["loaded_ref_count", "loaded_bytes", "tool_call_count", "action_output_bytes"],
+      "properties": {"loaded_ref_count": {"type": "integer", "minimum": 1}, "loaded_bytes": {"type": "integer", "minimum": 1}, "tool_call_count": {"const": 1}, "action_output_bytes": {"type": "integer", "minimum": 0}}
+    },
+    "payload_sha256": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "ref": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"$ref": "#/$defs/sha"}}}
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "contract_version", "closure_run_id", "task_id", "status", "capsule", "execution_slice", "handoff", "runtime_envelope", "stage_receipt", "failure_point", "resume_entry", "approval_boundary", "selected_tool_id", "commands_run", "exit_codes", "observed_schema_versions", "decision", "boundary_check", "metrics", "payload_sha256"],
+  "properties": {
+    "schema_version": {"const": "local-tool-task-receipt.v1"},
+    "contract_version": {"const": "small-model-task-capsule-foundation.v1"},
+    "closure_run_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,119}$"},
+    "task_id": {"type": "string"},
+    "status": {"enum": ["passed", "blocked", "escalated"]},
+    "capsule": {"$ref": "#/$defs/ref"},
+    "execution_slice": {"$ref": "#/$defs/ref"},
+    "handoff": {"$ref": "#/$defs/ref"},
+    "runtime_envelope": {"$ref": "#/$defs/ref"},
+    "stage_receipt": {
+      "type": "object", "additionalProperties": false, "required": ["stage_id", "status"],
+      "properties": {"stage_id": {"const": "static-doctor"}, "status": {"enum": ["passed", "blocked", "escalated"]}}
+    },
+    "failure_point": {"type": ["string", "null"]},
+    "resume_entry": {"type": "string", "minLength": 5, "maxLength": 512},
+    "approval_boundary": {"const": "native_gate_preserved"},
+    "selected_tool_id": {"type": "string"},
+    "commands_run": {"type": "array", "minItems": 1, "maxItems": 5, "items": {"type": "string"}},
+    "exit_codes": {"type": "array", "minItems": 1, "maxItems": 5, "items": {"type": "integer"}},
+    "observed_schema_versions": {"type": "array", "maxItems": 8, "uniqueItems": true, "items": {"type": "string"}},
+    "decision": {"enum": ["passed", "blocked", "escalated"]},
+    "boundary_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["network", "external_write", "service_started", "fallback_used"],
+      "properties": {"network": {"const": false}, "external_write": {"const": false}, "service_started": {"const": false}, "fallback_used": {"const": false}}
+    },
+    "metrics": {
+      "type": "object", "additionalProperties": false, "required": ["loaded_ref_count", "loaded_bytes", "tool_call_count"],
+      "properties": {"loaded_ref_count": {"type": "integer", "minimum": 1}, "loaded_bytes": {"type": "integer", "minimum": 1}, "tool_call_count": {"type": "integer", "minimum": 1, "maximum": 5}}
+    },
+    "payload_sha256": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "ref": {
+      "type": "object", "additionalProperties": false, "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string"}, "sha256": {"$ref": "#/$defs/sha"}}
+    }
+  }
+}

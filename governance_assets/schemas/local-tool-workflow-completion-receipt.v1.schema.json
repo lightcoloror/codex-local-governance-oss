@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "workflow_id", "run_id", "template_id", "status", "completed_stages", "stage_receipts", "final_artifacts", "model_turns_used_by_runner", "boundary_check", "checked_at", "execution_authorized", "payload_sha256"],
+  "properties": {
+    "schema_version": {"const": "local-tool-workflow-completion-receipt.v1"},
+    "workflow_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "template_id": {"type": "string"},
+    "status": {"const": "completed"},
+    "completed_stages": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string"}},
+    "stage_receipts": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/ref"}},
+    "final_artifacts": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/artifact"}},
+    "model_turns_used_by_runner": {"const": 0},
+    "boundary_check": {"type": "object"},
+    "checked_at": {"type": "string", "minLength": 10},
+    "execution_authorized": {"const": false},
+    "payload_sha256": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "ref": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"$ref": "#/$defs/sha"}}},
+    "artifact": {"type": "object", "additionalProperties": false, "required": ["stage_id", "path", "sha256", "size_bytes"], "properties": {"stage_id": {"type": "string"}, "path": {"type": "string"}, "sha256": {"$ref": "#/$defs/sha"}, "size_bytes": {"type": "integer", "minimum": 0}}}
+  }
+}

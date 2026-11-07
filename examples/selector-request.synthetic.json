@@ -1,0 +1,6 @@
+{
+  "schema_version": "agent-tool-compact-selector-request.v1",
+  "request_id": "synthetic-selector",
+  "objective": "Locate an offline fictional content candidate reviewer",
+  "category_hint": "content_candidate"
+}

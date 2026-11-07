@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/schemas/routing-contract-set.v1.schema.json",
+  "title": "Atomic content routing contract set",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "contract_set_id", "contract_set_version", "canonical_root", "hash_mode", "components", "compatible_extensions", "mixing_policy", "boundaries", "provenance"],
+  "properties": {
+    "schema_version": {"const": "routing-contract-set.v1"},
+    "contract_set_id": {"const": "registered-content-routing"},
+    "contract_set_version": {"const": "1.9.0"},
+    "canonical_root": {"const": "."},
+    "hash_mode": {"const": "canonical-json-v1"},
+    "components": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_router", "format_adapters", "platform_overlays", "skill_registry", "quality_gates"],
+      "properties": {
+        "task_router": {"$ref": "#/$defs/component"},
+        "format_adapters": {"$ref": "#/$defs/component"},
+        "platform_overlays": {"$ref": "#/$defs/component"},
+        "skill_registry": {"$ref": "#/$defs/component"},
+        "quality_gates": {"$ref": "#/$defs/component"}
+      }
+    },
+    "compatible_extensions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "owner", "path", "role", "may_replace_canonical_component"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "owner": {"type": "string", "minLength": 1},
+          "path": {"type": "string", "minLength": 1},
+          "role": {"enum": ["operational-extension", "playbook-extension"]},
+          "may_replace_canonical_component": {"const": false}
+        }
+      }
+    },
+    "mixing_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mixed_roots_prohibited", "single_contract_set_per_route", "legacy_same_name_files_authoritative", "on_mismatch"],
+      "properties": {
+        "mixed_roots_prohibited": {"const": true},
+        "single_contract_set_per_route": {"const": true},
+        "legacy_same_name_files_authoritative": {"const": false},
+        "on_mismatch": {"const": "fail-closed"}
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["execution", "publication", "external_send", "customer_contact", "crm_write", "knowledge_base_write"],
+      "properties": {
+        "execution": {"const": "draft-diagnose-review-only"},
+        "publication": {"const": "manual-only"},
+        "external_send": {"const": "not-authorized"},
+        "customer_contact": {"const": "not-authorized"},
+        "crm_write": {"const": "not-authorized"},
+        "knowledge_base_write": {"const": "not-authorized"}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["created_at", "updated_at", "acting_tool_model", "supersedes"],
+      "properties": {
+        "created_at": {"type": "string", "format": "date-time"},
+        "updated_at": {"type": "string", "format": "date-time"},
+        "acting_tool_model": {"type": "string", "minLength": 1},
+        "supersedes": {"type": "array", "minItems": 2, "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  },
+  "$defs": {
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "schema_version", "canonical_json_sha256"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^[a-z0-9-]+\\.json$"},
+        "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+$"},
+        "canonical_json_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

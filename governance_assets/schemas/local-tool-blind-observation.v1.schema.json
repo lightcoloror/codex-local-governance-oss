@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "task_id", "selected_tool_id", "commands_run", "exit_codes", "observed_schema_versions", "decision", "boundary_check"],
+  "properties": {
+    "schema_version": {"const": "local-tool-blind-observation.v1"},
+    "task_id": {"type": "string"},
+    "selected_tool_id": {"type": "string"},
+    "commands_run": {"type": "array", "minItems": 1, "maxItems": 5, "items": {"type": "string"}},
+    "exit_codes": {"type": "array", "minItems": 1, "maxItems": 5, "items": {"type": "integer"}},
+    "observed_schema_versions": {"type": "array", "maxItems": 8, "uniqueItems": true, "items": {"type": "string"}},
+    "decision": {"enum": ["passed", "blocked", "escalated"]},
+    "boundary_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["network", "external_write", "service_started", "fallback_used"],
+      "properties": {
+        "network": {"type": "boolean"}, "external_write": {"type": "boolean"},
+        "service_started": {"type": "boolean"}, "fallback_used": {"type": "boolean"}
+      }
+    }
+  }
+}

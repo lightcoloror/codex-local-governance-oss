@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "workflow_id", "template_id", "objective", "input_refs"],
+  "properties": {
+    "schema_version": {"const": "local-tool-workflow-request.v1"},
+    "workflow_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,95}$"},
+    "template_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{4,95}$"},
+    "objective": {"type": "string", "minLength": 5, "maxLength": 2000},
+    "input_refs": {"type": "array", "maxItems": 8, "items": {"$ref": "#/$defs/ref"}}
+  },
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$)).+$"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

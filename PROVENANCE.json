@@ -1,0 +1,208 @@
+{
+  "edition": "0.1.0",
+  "tool": "Codex",
+  "date": "2026-11-07",
+  "sources": [
+    {
+      "repository": "lightcoloror/codex-local-governance",
+      "commit": "5748dbe6f07e4655d825e1013ad3fe23098ed1c2",
+      "selected": [
+        {
+          "path": "snapshots/discovery/agent-catalog/agent-tool-catalog.v1.schema.json",
+          "blob": "e77511b2df7709f3f5dc0d3e6112074d5cd41526",
+          "sha256": "0ee4b488e2622455896edf99893ff1479c1c0aba83c2c3a40806837b13fc474c",
+          "bytes": 8225
+        },
+        {
+          "path": "snapshots/discovery/agent-catalog/schemas/agent-tool-compact-selector-request.v1.schema.json",
+          "blob": "105a43e27060da14db01a617299bc16871c0b6d2",
+          "sha256": "06c9365af16fbbec490b939f7226de1bdb5d7df27a2dfa194b6104830253835a",
+          "bytes": 737
+        },
+        {
+          "path": "snapshots/discovery/agent-catalog/schemas/agent-tool-compact-selector-stage1.v1.schema.json",
+          "blob": "1683d966b21842c0a19fe33fa70db3480f60f06e",
+          "sha256": "78ed595dad6b31d013394b0d0981ca5af8d4c2e08c52f007d3b168350807cd4d",
+          "bytes": 1804
+        },
+        {
+          "path": "snapshots/discovery/agent-catalog/schemas/agent-tool-compact-selector-stage2.v1.schema.json",
+          "blob": "088887e26b648e438b8d3ca00b2d42188155ab6f",
+          "sha256": "d574964b6731f588684b67340b2dceb5ea965b53c61de668a8a34697c9e2aab9",
+          "bytes": 2261
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/agent-tool-action-execution-slice.v1.schema.json",
+          "blob": "8648d029473beea6ba70b0b41563db8d978e2e77",
+          "sha256": "73776c278292e3f10228ce77655c5ae031788cf89ac5e9248337b124499c96e8",
+          "bytes": 2295
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/agent-tool-execution-slice.v1.schema.json",
+          "blob": "98de4bf20e1f39caffa9b2eca2a927bdfa0952c4",
+          "sha256": "696bc58d914c84bd8c0743ecf8a3fee9b636a117cda8f265aee6f72f3bde474a",
+          "bytes": 1544
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-action-observation.v1.schema.json",
+          "blob": "d3ce16703e7cadcf7b678e8d191ae92921a54cb2",
+          "sha256": "8758952db413c5b11976147fca80c74a17bf9a120a027e9d60bfae54c693176c",
+          "bytes": 2277
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-action-profile-catalog.v1.schema.json",
+          "blob": "f0ef3db1454282fff96b646f83d3382d90072ff7",
+          "sha256": "e940356d948287934504e45bb5addcd0aa2151793e667b85c08f33f37668856c",
+          "bytes": 3316
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-action-receipt.v1.schema.json",
+          "blob": "e9e09e3fd487b4b1efbeb5d01618cf75e2be11dc",
+          "sha256": "88a8e71e60ff97645ff3db4ba79d148053aebce9b4a8d4e0c7a555dca297a971",
+          "bytes": 3005
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-action-result.v1.schema.json",
+          "blob": "442dfc1e88b83ce35283e2b1de3b0e18893cbc9b",
+          "sha256": "3bce96786ee04cbf3895b8f30947591119af229024d7a5f1d528b232f5bb0547",
+          "bytes": 2706
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-action-task-capsule.v1.schema.json",
+          "blob": "02a8d35d01433f68caefafdd566ae04ef90689d3",
+          "sha256": "297de0d998b4d6c7acbae575c83307ebca58731414ddeb14207ed26bae415652",
+          "bytes": 4157
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-action-task-request.v1.schema.json",
+          "blob": "c227fe6e421073d866c00ad3a74ed3b99e4ba5b5",
+          "sha256": "589a73038c4d053409cbbf98fbd38ec7c09a6093bea7cb6a43a9bd14d380d3b4",
+          "bytes": 1215
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-blind-observation.v1.schema.json",
+          "blob": "ee4e552984589d7ec2ae3dca84e272d5ec8e5481",
+          "sha256": "464d4b7c0b7fb1fb000ef68b746ff87e3e9ce8ae144a12533959b9390b55b07e",
+          "bytes": 1177
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-runtime-envelope.v1.schema.json",
+          "blob": "78ed5a3e9009220b611cd9e0f586bdb04e564f0c",
+          "sha256": "23557627230eee111d0297d4236ec896620a9f314a484a609ec63a1cf31e2a3b",
+          "bytes": 1266
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-step-handoff.v1.schema.json",
+          "blob": "c1026f19a99028246c9b2c1e5094e84cbcd6ced3",
+          "sha256": "d47f1418d7c247b961cb40e9e1b9d9db6e4d013b63c6b74b42f1c4b682300629",
+          "bytes": 2548
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-task-capsule.v1.schema.json",
+          "blob": "79273c9f84c7bf94f606516b194baa8d449c9e89",
+          "sha256": "844a462727ad4797d6850b35826544f684cd782203a8478390db2957f6c0fb16",
+          "bytes": 3498
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-task-receipt.v1.schema.json",
+          "blob": "f92eeb60ab55161ed00b13c25c72bb1a54f8e102",
+          "sha256": "3bfd62f240acebfaa1df04a54a405e68122956b5c6b4b9c446ae641c04971d3b",
+          "bytes": 2832
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-task-request.v1.schema.json",
+          "blob": "9b539a47f9a91eba6178dd5271d4123c6b966894",
+          "sha256": "1069096bdce63dc0c628a1a401269346ffa4b82c7c9e562024598981c19e06b5",
+          "bytes": 1045
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-workflow-capsule.v1.schema.json",
+          "blob": "31dedf703e271674b1ac884a334829ae392da9d0",
+          "sha256": "cbce07d3e26b48269eab0a9a244ef35d5b10ef8c8d7837fcd719074e55ac8455",
+          "bytes": 2749
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-workflow-completion-receipt.v1.schema.json",
+          "blob": "f859b3de2ead9844fcf1aaf6cb2ee9b4b5c5217b",
+          "sha256": "4b1132408e7de9ea9bba9ab7d0f00c3332ff9fb300e8af8611fc72ba1c25949f",
+          "bytes": 1679
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-workflow-request.v1.schema.json",
+          "blob": "bec6325ef398fa8e17045635d067fac09fcc0d29",
+          "sha256": "e2c23e88db1b43b8225a040c44fa123d86c759da46f68a8f83b0cbfd3e16a52b",
+          "bytes": 973
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-workflow-run.v1.schema.json",
+          "blob": "cdef37a4573ad112102b0b3e27e24074d7071c58",
+          "sha256": "7126e7315deb5d8321f43f27d53cd2521c5a417b7ee478a33c6abe0fcc5c74db",
+          "bytes": 1376
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-workflow-stage-receipt.v1.schema.json",
+          "blob": "c624db75a04b802d3680599acbd16a25b183beb5",
+          "sha256": "f331dbf8c1e2c65b722ba4975636e2bb9a7c107746c2992e50f3e2b2bdf3a423",
+          "bytes": 1907
+        },
+        {
+          "path": "snapshots/discovery/task-capsules/schemas/local-tool-workflow-template-catalog.v1.schema.json",
+          "blob": "16f2e14fb7e3a7c5fbd7ebe9cf67e6cb843b5eb8",
+          "sha256": "2840711846768bf24ca8e876802d0bff0fec3ade30a6420500ee2a9f89b81de5",
+          "bytes": 3470
+        },
+        {
+          "path": "snapshots/integration-pack/portable-local-tools/portable_local_tools.py",
+          "blob": "0f73907ff4970ff36f715a654c03c466529166a3",
+          "sha256": "ba6744d747e45be32003e2728185e30f99812e6329a6a7821df73cb7efd7498c",
+          "bytes": 12987
+        },
+        {
+          "path": "snapshots/self-media-workflow-20261026/workspace/docs/content-creation-system/routing/routing-contract-set.v1.schema.json",
+          "blob": "84b1532b45c469be69e83b3207935ddee083c047",
+          "sha256": "f70450076c16f2d6bc27a935180ffc74dd099be04077b88b8c076790612ae281",
+          "bytes": 3872
+        },
+        {
+          "path": "snapshots/entrypoints/local_tool_task_capsule.py",
+          "blob": "bce72d8e13dfed94bb905a55c0d18610974df676",
+          "sha256": "5040de161bf80d06739657d24102469b0a5a355943c50904b6c44b1b72c3e911",
+          "bytes": 73090
+        }
+      ]
+    },
+    {
+      "repository": "lightcoloror/research-content-production",
+      "commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "src/portable_contract_bundle.py",
+          "sha256": "f5cfd97bcc5e855cfd0929ad891f2d56eaad4d73f524dc6f56ef34df02e191c9"
+        },
+        {
+          "path": "portability/schemas/agent-tool-manifest.v1.schema.json",
+          "sha256": "c981837a9724bc2f79ed810ab93b2bfdb981b553ada306dbe44f23e1c9773bd8"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "2a9d82c7f37caadf72436764de67e4042942b8dea2ec9456ed5c43daf7eba074"
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    "private snapshots except exact generic schema and helper selections",
+    "actual inventories, queues, task receipts and operational status",
+    "workspace task compiler and action executor",
+    "full content routing validator and deployed Skills: maintained by the self-media edition"
+  ],
+  "adaptations": [
+    "configurable unique safe tool ids replace fixed internal inventory",
+    "synthetic examples replace actual manifest states",
+    "bundled AST-selected pinned manifest adapter",
+    "empty JSON Schema Registry disables remote retrieval",
+    "receipt integrity helpers exposed through an offline CLI"
+  ],
+  "synthetic_only": true
+}

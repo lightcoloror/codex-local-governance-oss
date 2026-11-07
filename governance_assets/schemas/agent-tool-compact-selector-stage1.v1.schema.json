@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "agent-tool-compact-selector-stage1.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_snapshot",
+    "categories",
+    "next_command",
+    "unknown_policy",
+    "approval_policy",
+    "execution_authorized"
+  ],
+  "properties": {
+    "schema_version": {"const": "agent-tool-compact-selector-stage1.v1"},
+    "catalog_snapshot": {"$ref": "#/$defs/snapshot"},
+    "categories": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["category_id", "cues", "boundary"],
+        "properties": {
+          "category_id": {"type": "string", "minLength": 1},
+          "cues": {"type": "array", "minItems": 1, "maxItems": 8, "items": {"type": "string"}},
+          "boundary": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "next_command": {"type": "string", "minLength": 1},
+    "unknown_policy": {"type": "string", "minLength": 1},
+    "approval_policy": {"type": "string", "minLength": 1},
+    "execution_authorized": {"const": false},
+    "payload_bytes": {"type": "integer", "minimum": 1, "maximum": 3072}
+  },
+  "$defs": {
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["semantic_sha256", "generated_at", "tool_count", "ttl_seconds", "freshness_policy"],
+      "properties": {
+        "semantic_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "generated_at": {"type": "string", "minLength": 1},
+        "tool_count": {"type": "integer", "minimum": 1},
+        "ttl_seconds": {"const": 0},
+        "freshness_policy": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

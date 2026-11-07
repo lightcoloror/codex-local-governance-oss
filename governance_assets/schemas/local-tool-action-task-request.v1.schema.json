@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "task_id", "objective", "expected_tool_id", "action_id", "input_refs"],
+  "properties": {
+    "schema_version": {"const": "local-tool-action-task-request.v1"},
+    "task_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,95}$"},
+    "closure_run_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,119}$"},
+    "objective": {"type": "string", "minLength": 5, "maxLength": 3000},
+    "expected_tool_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$"},
+    "action_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{4,95}$"},
+    "requested_authority": {"enum": ["profile_scope", "real_action"]},
+    "input_refs": {"type": "array", "maxItems": 8, "items": {"$ref": "#/$defs/ref"}}
+  },
+  "$defs": {
+    "ref": {
+      "type": "object", "additionalProperties": false, "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^(?![A-Za-z]:[\\\\/])(?!/)(?!.*(?:^|[\\\\/])\\.\\.(?:[\\\\/]|$)).+$"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  }
+}

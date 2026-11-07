@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "agent-tool-compact-selector-request.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "objective"],
+  "properties": {
+    "schema_version": {"const": "agent-tool-compact-selector-request.v1"},
+    "request_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "objective": {"type": "string", "minLength": 8, "maxLength": 1200},
+    "category_hint": {
+      "enum": [
+        "web_retrieval",
+        "question_research",
+        "document_knowledge",
+        "video_understanding",
+        "presentation",
+        "schedule",
+        "content_candidate",
+        "review_and_crm"
+      ]
+    }
+  }
+}

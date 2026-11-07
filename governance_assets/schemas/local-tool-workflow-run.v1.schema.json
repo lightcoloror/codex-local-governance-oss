@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "workflow_id", "run_id", "template_id", "status", "capsule", "completed_stages", "current_stage", "failure", "resume_entry", "catalog_refresh", "checked_at", "execution_authorized", "payload_sha256"],
+  "properties": {
+    "schema_version": {"const": "local-tool-workflow-run.v1"},
+    "workflow_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "template_id": {"type": "string"},
+    "status": {"enum": ["created", "in_progress", "completed", "blocked", "needs_model_escalation"]},
+    "capsule": {"$ref": "#/$defs/ref"},
+    "completed_stages": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "current_stage": {"type": ["string", "null"]},
+    "failure": {"type": ["object", "null"]},
+    "resume_entry": {"type": "string", "minLength": 5},
+    "catalog_refresh": {"type": "object"},
+    "checked_at": {"type": "string", "minLength": 10},
+    "execution_authorized": {"const": false},
+    "payload_sha256": {"$ref": "#/$defs/sha"}
+  },
+  "$defs": {
+    "sha": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "ref": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"$ref": "#/$defs/sha"}}}
+  }
+}
