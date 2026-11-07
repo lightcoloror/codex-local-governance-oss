@@ -1,0 +1,97 @@
+{
+  "capabilities": [
+    "declared-self-media-contract-interface"
+  ],
+  "contract_refs": [
+    {
+      "bundle_id": "local-tools-portable-contracts",
+      "bundle_path": "contracts/portable/v1/portable-contract-bundle.v1.json",
+      "bundle_version": "1.0.0",
+      "contract_id": "evidence-bundle.v1",
+      "distribution_repository": "https://github.com/lightcoloror/codex-local-governance-oss"
+    },
+    {
+      "bundle_id": "local-tools-portable-contracts",
+      "bundle_path": "contracts/portable/v1/portable-contract-bundle.v1.json",
+      "bundle_version": "1.0.0",
+      "contract_id": "content-brief.v1",
+      "distribution_repository": "https://github.com/lightcoloror/codex-local-governance-oss"
+    },
+    {
+      "bundle_id": "local-tools-portable-contracts",
+      "bundle_path": "contracts/portable/v1/portable-contract-bundle.v1.json",
+      "bundle_version": "1.0.0",
+      "contract_id": "review-packet.v1",
+      "distribution_repository": "https://github.com/lightcoloror/codex-local-governance-oss"
+    }
+  ],
+  "description": "Declared public source interface; metadata inspection is not installation, runtime or business verification.",
+  "executionAuthority": "none_metadata_only",
+  "health": {
+    "doctor": {
+      "kind": "metadata_only",
+      "reason": "No live probe; explicit native checks and user authorization remain required."
+    },
+    "proves_current_online": false,
+    "status_semantics": "Metadata only; no live probe"
+  },
+  "id": "mvp-video-pipeline",
+  "inputs": [],
+  "interfaces": {
+    "canonical": [
+      {
+        "command": "video-canonical-demo --help",
+        "kind": "cli"
+      }
+    ],
+    "http": [],
+    "mcp": [],
+    "windows_wrappers": []
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "status": "Native package license; this metadata does not relicense its implementation."
+  },
+  "manifest_version": "1.0.0",
+  "notTrustedAsInstruction": true,
+  "outputs": [],
+  "platforms": [
+    "windows",
+    "linux",
+    "macos"
+  ],
+  "portability": {
+    "canonical_cross_platform_entry": false,
+    "gaps": [
+      "Declared CLI metadata only; no cross-platform execution is asserted."
+    ],
+    "in_repo_discovery": true,
+    "status": "metadata_only"
+  },
+  "provenance": {
+    "contract_refs_basis": "native_manifest_declared_ids_remapped_as_proposal",
+    "descriptor_role": "selected_source_interface_reference_not_runtime_registration",
+    "native_manifest_sha256": "c6411b44ac9e8b6a8ffa988d66d4c058c6940e570669d9ffbc7ecf3790d66dc0",
+    "no_write_checks": [],
+    "runtime_contract": {
+      "current_online": "unknown",
+      "default_runtime": "not_assessed"
+    },
+    "source_commit": "14c4af03ed34ce2433d9c22dd2f753c2fed8bc83",
+    "source_repository": null,
+    "source_status": "unpublished_candidate_not_claimed_public"
+  },
+  "requirements": {
+    "approval": {
+      "mode": "required"
+    },
+    "network": {
+      "mode": "none",
+      "reason": "This descriptor is inspection-only; native tool network requirements are not inferred."
+    },
+    "secrets": {
+      "mode": "none"
+    }
+  },
+  "schema_version": "agent-tool-manifest.v1"
+}

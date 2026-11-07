@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/schemas/portable-contract-bundle.v1.schema.json",
+  "title": "Portable Local Tools contract bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "bundle_version",
+    "source_catalog_sha256",
+    "registry_sha256",
+    "contracts",
+    "artifacts",
+    "mainchain_manifests",
+    "proposal_ref",
+    "proposal_sha256",
+    "difference_queue_ref",
+    "difference_queue_sha256",
+    "notTrustedAsInstruction",
+    "executionAuthority"
+  ],
+  "properties": {
+    "schema_version": {"const": "portable-contract-bundle.v1"},
+    "bundle_id": {"const": "local-tools-portable-contracts"},
+    "bundle_version": {"const": "1.0.0"},
+    "source_catalog_sha256": {"$ref": "#/$defs/hash"},
+    "registry_sha256": {"$ref": "#/$defs/hash"},
+    "contracts": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"$ref": "#/$defs/contract"}},
+    "artifacts": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/artifact"}},
+    "mainchain_manifests": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"$ref": "#/$defs/manifest"}},
+    "proposal_ref": {"const": "proposals/registry-agent-tool-manifests.v1.json"},
+    "proposal_sha256": {"$ref": "#/$defs/hash"},
+    "difference_queue_ref": {"const": "proposals/remaining-tool-difference-queue.v1.json"},
+    "difference_queue_sha256": {"$ref": "#/$defs/hash"},
+    "notTrustedAsInstruction": {"const": true},
+    "executionAuthority": {"const": "none_metadata_only"}
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_id", "version", "bundle_ref", "sha256", "authority"],
+      "properties": {
+        "contract_id": {"enum": ["material-manifest.v1", "evidence-bundle.v1", "content-brief.v1", "review-packet.v1", "service-profile.v1", "closure_run.v1", "local-tool-event.v1"]},
+        "version": {"const": "v1"},
+        "bundle_ref": {"type": "string", "pattern": "^contracts/[^/]+\\.json$"},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "authority": {"type": "string", "minLength": 1}
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "source_ref", "source_sha256", "copy_mode"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "source_ref": {"type": "string", "minLength": 1},
+        "source_sha256": {"$ref": "#/$defs/hash"},
+        "copy_mode": {"const": "exact_generated_snapshot"}
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tool_id", "path", "sha256"],
+      "properties": {
+        "tool_id": {"type": "string", "minLength": 1},
+        "path": {"type": "string", "pattern": "^manifests/[^/]+\\.agent-tool-manifest\\.v1\\.json$"},
+        "sha256": {"$ref": "#/$defs/hash"}
+      }
+    }
+  }
+}

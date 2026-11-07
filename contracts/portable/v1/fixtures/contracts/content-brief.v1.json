@@ -1,0 +1,13 @@
+{
+  "facade_contract": "content-brief.v1",
+  "fixture_schema": "linkage-positive-fixture.v1",
+  "metadata": {
+    "execution_authorized": false,
+    "external_io_performed": false,
+    "synthetic_only": true
+  },
+  "native_contract": "content-video-brief.v1",
+  "payload_mode": "authoritative_ref",
+  "producer": "content-studio-poc",
+  "source_role": "canonical_fixture"
+}

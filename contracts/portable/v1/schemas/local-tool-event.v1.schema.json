@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "local-tool-event.v1",
+  "title": "Local Tool Event v1",
+  "description": "CloudEvents 1.0 structured JSON envelope for local metadata, requests, facts, and receipts. It never grants execution authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "specversion",
+    "id",
+    "source",
+    "type",
+    "subject",
+    "time",
+    "datacontenttype",
+    "data",
+    "traceref",
+    "ownerref",
+    "evidencestatus",
+    "approvalstate",
+    "artifactrefs",
+    "schemaversion"
+  ],
+  "properties": {
+    "specversion": {"const": "1.0"},
+    "id": {"type": "string", "pattern": "^evt-[a-f0-9]{32}$"},
+    "source": {"type": "string", "pattern": "^urn:local-tool:[a-z0-9._-]+$"},
+    "type": {
+      "enum": [
+        "task.created",
+        "checkpoint.recorded",
+        "receipt.completed",
+        "task.failed",
+        "task.cancelled",
+        "status.observed"
+      ]
+    },
+    "subject": {"type": "string", "minLength": 1, "maxLength": 256},
+    "time": {"type": "string", "format": "date-time"},
+    "datacontenttype": {"const": "application/json"},
+    "data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_role", "contract_ref", "summary", "payload"],
+      "properties": {
+        "event_role": {"enum": ["fact", "request", "receipt"]},
+        "contract_ref": {"type": "string", "minLength": 1},
+        "summary": {"type": "string", "minLength": 1, "maxLength": 1000},
+        "payload": {"type": "object"},
+        "evidence_expires_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "traceref": {"type": "string", "minLength": 1, "maxLength": 256},
+    "ownerref": {
+      "type": "string",
+      "pattern": "^owner://[a-z0-9._/-]+$",
+      "maxLength": 256
+    },
+    "evidencestatus": {
+      "enum": [
+        "candidate",
+        "unverified",
+        "reviewed",
+        "verified",
+        "stale",
+        "expired",
+        "unknown",
+        "not_fact_claim"
+      ]
+    },
+    "approvalstate": {
+      "enum": ["not_required", "pending", "approved", "rejected", "expired"]
+    },
+    "artifactrefs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "schemaversion": {"const": "local-tool-event.v1"}
+  },
+  "$comment": "Logical adapter names map trace_ref->traceref, owner_ref->ownerref, evidence_status->evidencestatus, approval_state->approvalstate, artifact_refs->artifactrefs, schema_version->schemaversion because CloudEvents extension names cannot contain underscores."
+}

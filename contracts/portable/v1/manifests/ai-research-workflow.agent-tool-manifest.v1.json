@@ -1,0 +1,74 @@
+{
+  "capabilities": [
+    "declared-self-media-contract-interface"
+  ],
+  "contract_refs": [],
+  "description": "Declared public source interface; metadata inspection is not installation, runtime or business verification.",
+  "executionAuthority": "none_metadata_only",
+  "health": {
+    "doctor": {
+      "kind": "metadata_only",
+      "reason": "No live probe; explicit native checks and user authorization remain required."
+    },
+    "proves_current_online": false,
+    "status_semantics": "Metadata only; no live probe"
+  },
+  "id": "ai-research-workflow",
+  "inputs": [],
+  "interfaces": {
+    "canonical": [
+      {
+        "command": "research --help",
+        "kind": "cli"
+      }
+    ],
+    "http": [],
+    "mcp": [],
+    "windows_wrappers": []
+  },
+  "license": {
+    "spdx": "Apache-2.0",
+    "status": "Native package license; this metadata does not relicense its implementation."
+  },
+  "manifest_version": "1.0.0",
+  "notTrustedAsInstruction": true,
+  "outputs": [],
+  "platforms": [
+    "windows",
+    "linux",
+    "macos"
+  ],
+  "portability": {
+    "canonical_cross_platform_entry": false,
+    "gaps": [
+      "Declared CLI metadata only; no cross-platform execution is asserted."
+    ],
+    "in_repo_discovery": true,
+    "status": "metadata_only"
+  },
+  "provenance": {
+    "contract_refs_basis": "no_native_manifest_contract_consumption_claimed",
+    "descriptor_role": "selected_source_interface_reference_not_runtime_registration",
+    "no_write_checks": [],
+    "runtime_contract": {
+      "current_online": "unknown",
+      "default_runtime": "not_assessed"
+    },
+    "source_commit": "9f1b2c03f2ee71fcb1bc7cbd4fe70e72db252161",
+    "source_repository": "https://github.com/lightcoloror/ai-research-workflow-oss",
+    "source_status": "public_source_metadata_only"
+  },
+  "requirements": {
+    "approval": {
+      "mode": "required"
+    },
+    "network": {
+      "mode": "none",
+      "reason": "This descriptor is inspection-only; native tool network requirements are not inferred."
+    },
+    "secrets": {
+      "mode": "none"
+    }
+  },
+  "schema_version": "agent-tool-manifest.v1"
+}

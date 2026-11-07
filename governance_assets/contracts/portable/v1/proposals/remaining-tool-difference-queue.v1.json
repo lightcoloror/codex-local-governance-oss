@@ -1,0 +1,8 @@
+{
+  "executionAuthority": "none_metadata_only",
+  "item_count": 0,
+  "items": [],
+  "notTrustedAsInstruction": true,
+  "schema_version": "remaining-tool-difference-queue.v1",
+  "scope": "Only the 7 explicitly declared source interfaces; not a private inventory, deployment queue or statement that native runtime review is complete."
+}

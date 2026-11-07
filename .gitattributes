@@ -1,3 +1,6 @@
 * text=auto eol=lf
 # Preserve the exact historical schema bytes recorded in PROVENANCE.json.
 governance_assets/schemas/routing-contract-set.v1.schema.json -text
+# Preserve the exact published lock snapshot; it is inert metadata, not a lock update.
+contracts/portable/v1/sources/public-toolchain.lock.json -text
+governance_assets/contracts/portable/v1/sources/public-toolchain.lock.json -text

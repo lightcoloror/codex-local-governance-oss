@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/schemas/closure-truth.v1.schema.json",
+  "title": "Local Tools closure truth dimensions",
+  "type": "object",
+  "required": [
+    "contract_ready",
+    "runtime_ready",
+    "fresh_e2e_pass",
+    "real_usage_proof",
+    "current_online",
+    "summary"
+  ],
+  "properties": {
+    "contract_ready": { "$ref": "#/$defs/dimension" },
+    "runtime_ready": { "$ref": "#/$defs/dimension" },
+    "fresh_e2e_pass": {
+      "allOf": [
+        { "$ref": "#/$defs/dimension" },
+        {
+          "type": "object",
+          "required": ["checked_at", "receipt_ref", "ttl_hours", "expires_at"]
+        }
+      ]
+    },
+    "real_usage_proof": { "$ref": "#/$defs/dimension" },
+    "current_online": { "$ref": "#/$defs/dimension" },
+    "summary": {
+      "type": "object",
+      "required": [
+        "legacy_status",
+        "control_plane_status",
+        "legacy_status_scope",
+        "truth_status",
+        "verified_available"
+      ],
+      "properties": {
+        "legacy_status": { "type": "string" },
+        "control_plane_status": {
+          "enum": [
+            "contract_runtime_ready",
+            "conditional",
+            "optional_stopped_by_design",
+            "unavailable",
+            "blocked",
+            "paused"
+          ]
+        },
+        "legacy_status_scope": {
+          "const": "contract_and_declared_health_only"
+        },
+        "truth_status": {
+          "enum": [
+            "verified_available",
+            "not_verified_available",
+            "availability_unknown",
+            "paused"
+          ]
+        },
+        "verified_available": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "dimension": {
+      "type": "object",
+      "required": ["value", "state", "reason_codes"],
+      "properties": {
+        "value": { "type": ["boolean", "null"] },
+        "state": { "type": "string", "minLength": 1 },
+        "reason_codes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,11 @@
+{
+  "authority": "first_party_generic_schema_snapshot",
+  "contract_id": "closure_run.v1",
+  "executionAuthority": "none_metadata_only",
+  "native_contract": "local-tool-closure-run.v2",
+  "notTrustedAsInstruction": true,
+  "note": "Generic structural contract only; this distribution does not run closure, event delivery, queues or side effects. Synthetic fixtures are not real completed operations.",
+  "schema_ref": "schemas/local-tool-closure-run.v2.schema.json",
+  "schema_sha256": "4f46866726e6406bffcea4553fffee205874a32ef59b132f8c4f7bf1b3880f21",
+  "schema_version": "portable-contract-reference.v1"
+}

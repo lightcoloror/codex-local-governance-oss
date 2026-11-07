@@ -1,0 +1,55 @@
+{
+  "cache_ttl_seconds": 0,
+  "closure_run_id": "portable-contract-fixture-001",
+  "completed_stages": [
+    "health",
+    "linkage",
+    "closure"
+  ],
+  "contract_versions": {
+    "closure_catalog": "closure-catalog.v1",
+    "closure_truth": "closure-truth.v1",
+    "control_plane": "local-tool-closure-run.v2",
+    "health_snapshot": "local-tool-health-snapshot.v2"
+  },
+  "failure_point": null,
+  "implementation_fingerprints": {
+    "runner": {
+      "path": "scripts/synthetic-runner.py",
+      "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+    }
+  },
+  "input_fingerprints": {
+    "closure_catalog": {
+      "path": "docs/local-tools/contracts/closure-catalog.v1.json",
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+    },
+    "linkage_catalog": {
+      "path": "docs/local-tools/contracts/linkage-contract-catalog.v1.json",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+    },
+    "owner_routing": {
+      "path": "docs/codex-session-index/owner-routing-status.json",
+      "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+    },
+    "registry": {
+      "path": "tool-registry.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "source_inventory": {
+      "path": "source-reviews/SOURCE_INVENTORY.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    }
+  },
+  "max_workers": 1,
+  "metadata_authorizes_execution": false,
+  "profile": "portable-contract-fixture",
+  "resume_entry": "research-content-contracts validate --repo-root .",
+  "schema_version": "local-tool-closure-run.v2",
+  "stages": [
+    "health",
+    "linkage",
+    "closure"
+  ],
+  "status": "completed"
+}

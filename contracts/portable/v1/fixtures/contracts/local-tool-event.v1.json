@@ -1,0 +1,28 @@
+{
+  "approvalstate": "not_required",
+  "artifactrefs": [
+    "fixtures/contracts/service-profile.v1.json"
+  ],
+  "data": {
+    "contract_ref": "service-profile.v1",
+    "event_role": "fact",
+    "payload": {
+      "contract_ready": true,
+      "current_online": null,
+      "metadata_authorizes_execution": false,
+      "runtime_ready": null
+    },
+    "summary": "Synthetic offline contract status fixture; no runtime or online claim."
+  },
+  "datacontenttype": "application/json",
+  "evidencestatus": "not_fact_claim",
+  "id": "evt-0123456789abcdef0123456789abcdef",
+  "ownerref": "owner://local-tools",
+  "schemaversion": "local-tool-event.v1",
+  "source": "urn:local-tool:research-content-production",
+  "specversion": "1.0",
+  "subject": "portable-contract-fixture-001",
+  "time": "2026-08-15T10:00:00Z",
+  "traceref": "portable-contract-fixture-001",
+  "type": "status.observed"
+}

@@ -1,0 +1,25 @@
+{
+  "facade_contract": "review-packet.v1",
+  "fixture_schema": "linkage-positive-fixture.v1",
+  "metadata": {
+    "execution_authorized": false,
+    "external_io_performed": false,
+    "synthetic_only": true
+  },
+  "native_contract": "attention-review-packet.v0.1",
+  "payload": {
+    "decision_question": "Approve this bounded local review?",
+    "discarded_or_not_started": "Unverified extras were omitted.",
+    "evidence_refs": [
+      "fixture://evidence/1"
+    ],
+    "evidence_status": "candidate",
+    "suggested_points": [
+      "Check source.",
+      "Check scope.",
+      "Check consequence."
+    ]
+  },
+  "payload_mode": "embedded",
+  "producer": "attention-firewall-cockpit"
+}

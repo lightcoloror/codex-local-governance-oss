@@ -1,0 +1,55 @@
+{
+  "facade_contract": "material-manifest.v1",
+  "fixture_schema": "linkage-positive-fixture.v1",
+  "metadata": {
+    "execution_authorized": false,
+    "external_io_performed": false,
+    "synthetic_only": true
+  },
+  "native_contract": "weixin-native-document.v1",
+  "payload": {
+    "capture": {
+      "live_capture_verified": false,
+      "mode": "native_accessibility_dom"
+    },
+    "degradations": [],
+    "nodes": [
+      {
+        "node_id": "node-000001",
+        "source_order": 1,
+        "text": "Before image",
+        "type": "paragraph"
+      },
+      {
+        "id": "image-0001",
+        "local_src": "assets/image-0001.png",
+        "node_id": "node-000002",
+        "sequence": 1,
+        "source_order": 2,
+        "type": "image"
+      },
+      {
+        "node_id": "node-000003",
+        "source_order": 3,
+        "text": "After image",
+        "type": "paragraph"
+      }
+    ],
+    "resources": [
+      {
+        "id": "image-0001",
+        "local_src": "assets/image-0001.png",
+        "sequence": 1,
+        "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "source_order": 2
+      }
+    ],
+    "schema_version": "weixin-native-document.v1",
+    "source": {
+      "kind": "synthetic",
+      "title": "Synthetic mixed document"
+    }
+  },
+  "payload_mode": "embedded",
+  "producer": "web-content-fetcher"
+}

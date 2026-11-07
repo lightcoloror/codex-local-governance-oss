@@ -1,0 +1,40 @@
+{
+  "closure_run.v1": {
+    "definition": "generic_schema",
+    "runtime": "not_implemented_by_bundle"
+  },
+  "content-brief.v1": {
+    "definition": "metadata_reference",
+    "native_optional_owner_distributed": "see_exact_source_bindings",
+    "not_a_replacement_for": "native Owner validation, evidence truth, author review or execution permission",
+    "runtime": "not_assessed"
+  },
+  "evidence-bundle.v1": {
+    "definition": "metadata_reference",
+    "native_optional_owner_distributed": "see_exact_source_bindings",
+    "not_a_replacement_for": "native Owner validation, evidence truth, author review or execution permission",
+    "runtime": "not_assessed"
+  },
+  "local-tool-event.v1": {
+    "definition": "generic_schema",
+    "runtime": "not_implemented_by_bundle"
+  },
+  "material-manifest.v1": {
+    "definition": "metadata_reference",
+    "native_optional_owner_distributed": "see_exact_source_bindings",
+    "not_a_replacement_for": "native Owner validation, evidence truth, author review or execution permission",
+    "runtime": "not_assessed"
+  },
+  "review-packet.v1": {
+    "definition": "metadata_reference",
+    "native_optional_owner_distributed": false,
+    "not_a_replacement_for": "native Owner validation, evidence truth, author review or execution permission",
+    "runtime": "blocked_external_native_owner_not_distributed"
+  },
+  "service-profile.v1": {
+    "definition": "metadata_reference",
+    "native_optional_owner_distributed": "see_exact_source_bindings",
+    "not_a_replacement_for": "native Owner validation, evidence truth, author review or execution permission",
+    "runtime": "not_assessed"
+  }
+}

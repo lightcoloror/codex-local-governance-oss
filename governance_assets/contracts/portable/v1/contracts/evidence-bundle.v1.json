@@ -1,0 +1,107 @@
+{
+  "authority": "public_metadata_reference_snapshot",
+  "contract": {
+    "authoritative_source": [
+      {
+        "authority": "authoritative",
+        "commit": "646b3871257b0861446615e7c96390f5dc714bde",
+        "expected_sha256": "3c2e0e9a05034b1ffa3693735da128c7d3e114ddb155f11668120b974fee1009",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "schemas/research-output.v1.schema.json",
+          "tool_id": "question-research-poc"
+        },
+        "native_contract": "research-output.v1",
+        "owner": "question-research-poc",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "schema"
+      },
+      {
+        "authority": "authoritative",
+        "commit": "646b3871257b0861446615e7c96390f5dc714bde",
+        "expected_sha256": "27ae62971f6754009859be87f07a47d9673484c5dea32db0f48e13ce0779a97c",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "tests/fixtures/research-output-v1/canonical/research-output.v1.json",
+          "tool_id": "question-research-poc"
+        },
+        "native_contract": "research-output.v1",
+        "owner": "question-research-poc",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "canonical_fixture"
+      },
+      {
+        "authority": "compatibility_reference",
+        "commit": "9f1b2c03f2ee71fcb1bc7cbd4fe70e72db252161",
+        "expected_sha256": "04cbca796a6916c8e94282c82ca064932b348c3001c44849f1e4991bc6d8e744",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "src/research_workflow/contract.py",
+          "tool_id": "ai-research-workflow"
+        },
+        "native_contract": "research_workflow contract",
+        "owner": "ai-research-workflow",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "research_service_compatibility_reference"
+      },
+      {
+        "authority": "compatibility_reference",
+        "commit": "9f1b2c03f2ee71fcb1bc7cbd4fe70e72db252161",
+        "expected_sha256": "45ca3646368c220204b96995ecb4d1d3818b38a17a4d71ac2927e63d7ebbf4fc",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "src/research_workflow/evidence_bundle_reference.py",
+          "tool_id": "ai-research-workflow"
+        },
+        "native_contract": "research-output.v1 reference consumer",
+        "owner": "ai-research-workflow",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "evidence_bundle_consumer_adapter"
+      }
+    ],
+    "compatibility": [
+      {
+        "consumer": "ai-research-workflow",
+        "fail_closed": true,
+        "mapping": "Public source-byte bindings and synthetic references only. Native payload and runtime gates remain with the named Owners; no current end-to-end interoperability is asserted by this catalog.",
+        "native_contract": "research-output.v1",
+        "producer": "question-research-poc",
+        "status": "proposal_only"
+      }
+    ],
+    "consumers": [
+      "ai-research-workflow",
+      "content-studio-poc"
+    ],
+    "contract_id": "evidence-bundle.v1",
+    "facade_mode": "direct_canonical",
+    "migration": [
+      "Use the declared exact source bytes without rewriting native payload meaning.",
+      "Missing optional native Owners, unknown evidence and unresolved reviews remain blocked; metadata is not execution authority."
+    ],
+    "negative_fixture_set": "fixtures/contracts/linkage-negative-cases.json",
+    "positive_fixture": "fixtures/contracts/evidence-bundle.v1.json",
+    "producers": [
+      "question-research-poc"
+    ],
+    "rollback": [
+      "Remove this metadata facade and continue referring to the native contract by name.",
+      "Retain original inputs, evidence, hashes and manual review boundaries."
+    ],
+    "version_strategy": "research-output.v1 is the direct canonical payload. Schema hash or semantic-version drift blocks consumers until owner fixtures and downstream adapter tests pass."
+  },
+  "contract_id": "evidence-bundle.v1",
+  "executionAuthority": "none_metadata_only",
+  "notTrustedAsInstruction": true,
+  "schema_version": "portable-contract-reference.v1",
+  "source_catalog_ref": "sources/linkage-contract-catalog.v1.json",
+  "source_catalog_sha256": "c259d33555ad4eace8e2b2b843e83e9a7f430ec43ec5e78e5fd5c651a4b1f89e"
+}

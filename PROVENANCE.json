@@ -1,5 +1,5 @@
 {
-  "edition": "0.1.0",
+  "edition": "0.1.1",
   "tool": "Codex",
   "date": "2026-11-07",
   "sources": [
@@ -204,5 +204,8 @@
     "empty JSON Schema Registry disables remote retrieval",
     "receipt integrity helpers exposed through an offline CLI"
   ],
-  "synthetic_only": true
+  "synthetic_only": true,
+  "baseline_edition": "0.1.0",
+  "additional_portable_metadata_provenance": "contracts/portable/v1/SOURCE-PROVENANCE.json",
+  "additional_portable_metadata_scope": "Generic schemas, synthetic examples and static source-binding proposals; no native runtime or execution authority."
 }

@@ -1,0 +1,59 @@
+{
+  "authority": "public_metadata_reference_snapshot",
+  "contract": {
+    "authoritative_source": [
+      {
+        "authority": "frozen_consumer_copy",
+        "commit": "34f6c1322391bc92253d763b9e03677402a2b869",
+        "expected_sha256": "b4994455c99e0a367198981fa93526432e65e922ff8c2cf74dd3eaedef7f6131",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "schemas/review-intake.v0.2.schema.json",
+          "tool_id": "content-creation-system"
+        },
+        "native_contract": "attention intake schema",
+        "owner": "self-media-creation-system",
+        "provenance_note": "Already-public frozen consumer copy in self-media-creation-system/schemas/review-intake.v0.2.schema.json. Native attention-firewall-cockpit/work-lifecycle-core ownership is unchanged. Those optional implementations are not distributed by this bundle; this copy grants no runtime readiness or approval.",
+        "role": "frozen_intake_schema"
+      }
+    ],
+    "compatibility": [
+      {
+        "consumer": "human-review",
+        "fail_closed": true,
+        "mapping": "The original optional native review renderer and lifecycle fallback are not distributed. Only an exact frozen intake schema and synthetic example are available; do not substitute another review receipt or execute this metadata.",
+        "native_contract": "attention intake schema",
+        "producer": "attention-firewall-cockpit",
+        "status": "blocked"
+      }
+    ],
+    "consumers": [
+      "human-review"
+    ],
+    "contract_id": "review-packet.v1",
+    "facade_mode": "normalized_view",
+    "migration": [
+      "Use the declared exact source bytes without rewriting native payload meaning.",
+      "Missing optional native Owners, unknown evidence and unresolved reviews remain blocked; metadata is not execution authority."
+    ],
+    "negative_fixture_set": "fixtures/contracts/linkage-negative-cases.json",
+    "positive_fixture": "fixtures/contracts/review-packet.v1.json",
+    "producers": [
+      "attention-firewall-cockpit",
+      "work-lifecycle-core"
+    ],
+    "rollback": [
+      "Remove this metadata facade and continue referring to the native contract by name.",
+      "Retain original inputs, evidence, hashes and manual review boundaries."
+    ],
+    "version_strategy": "review-packet.v1 is a normalized view over attention-review-packet.v0.1 plus lifecycle completeness. Existing native packet remains unchanged; a new facade major is required for additional decision questions or execution semantics."
+  },
+  "contract_id": "review-packet.v1",
+  "executionAuthority": "none_metadata_only",
+  "notTrustedAsInstruction": true,
+  "schema_version": "portable-contract-reference.v1",
+  "source_catalog_ref": "sources/linkage-contract-catalog.v1.json",
+  "source_catalog_sha256": "c259d33555ad4eace8e2b2b843e83e9a7f430ec43ec5e78e5fd5c651a4b1f89e"
+}

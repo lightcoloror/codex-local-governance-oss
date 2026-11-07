@@ -1,0 +1,108 @@
+{
+  "authority": "public_metadata_reference_snapshot",
+  "contract": {
+    "authoritative_source": [
+      {
+        "authority": "authoritative",
+        "commit": "49c3a4c4be735ca80816af87dc5241555ad9a600",
+        "expected_sha256": "be290561df0fa8dbfb2b235df4abdc91978b4bb40169e0cdf3a61f48100bfbcd",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "schemas/content-video-brief.v1.schema.json",
+          "tool_id": "content-studio"
+        },
+        "native_contract": "content-video-brief.v1",
+        "owner": "content-visual-studio",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "video_schema"
+      },
+      {
+        "authority": "frozen_consumer_copy",
+        "commit": null,
+        "expected_sha256": "70c65d7b8f47647e99f1698a178ecf57b624b9b09375df57fe8182fe66df8a8c",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "contracts/portable/v1/fixtures/native/content-video-brief.v1.json",
+          "tool_id": "codex-local-governance"
+        },
+        "native_contract": "content-video-brief.v1",
+        "owner": "codex-local-governance",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "frozen_consumer_fixture"
+      },
+      {
+        "authority": "frozen_consumer_copy",
+        "commit": null,
+        "expected_sha256": "d5a8e7b15528b8160f67b90ca870120dd80724553dbaa0770f346446e2395ecb",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "contracts/portable/v1/fixtures/native/content-video-brief.v1.schema.json",
+          "tool_id": "codex-local-governance"
+        },
+        "native_contract": "content-video-brief.v1",
+        "owner": "codex-local-governance",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "frozen_consumer_schema"
+      },
+      {
+        "authority": "authoritative",
+        "commit": "49c3a4c4be735ca80816af87dc5241555ad9a600",
+        "expected_sha256": "202b827b10c448594a37810fd307831d8410344df8d17f62896a2064f09885ad",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "schemas/content-item.schema.json",
+          "tool_id": "content-studio"
+        },
+        "native_contract": "content-item.schema.json",
+        "owner": "content-visual-studio",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "article_schema"
+      }
+    ],
+    "compatibility": [
+      {
+        "consumer": "mvp-video-pipeline",
+        "fail_closed": true,
+        "mapping": "Public source-byte bindings and synthetic references only. Native payload and runtime gates remain with the named Owners; no current end-to-end interoperability is asserted by this catalog.",
+        "native_contract": "content-video-brief.v1",
+        "producer": "content-studio-poc",
+        "status": "proposal_only"
+      }
+    ],
+    "consumers": [
+      "mvp-video-pipeline",
+      "human-review"
+    ],
+    "contract_id": "content-brief.v1",
+    "facade_mode": "tagged_variant",
+    "migration": [
+      "Use the declared exact source bytes without rewriting native payload meaning.",
+      "Missing optional native Owners, unknown evidence and unresolved reviews remain blocked; metadata is not execution authority."
+    ],
+    "negative_fixture_set": "fixtures/contracts/linkage-negative-cases.json",
+    "positive_fixture": "fixtures/contracts/content-brief.v1.json",
+    "producers": [
+      "content-studio-poc",
+      "content-creation-system"
+    ],
+    "rollback": [
+      "Remove this metadata facade and continue referring to the native contract by name.",
+      "Retain original inputs, evidence, hashes and manual review boundaries."
+    ],
+    "version_strategy": "content-brief.v1 is a tagged facade. Video uses content-video-brief.v1; article uses content-item v0.2 restricted to candidate/outline/draft/review. Optional renderer enum and artifact-dependency additions are backward-compatible for existing payloads but require explicit consumer adoption for new values. Unknown variants, malformed dependencies and publication-state upgrades fail closed."
+  },
+  "contract_id": "content-brief.v1",
+  "executionAuthority": "none_metadata_only",
+  "notTrustedAsInstruction": true,
+  "schema_version": "portable-contract-reference.v1",
+  "source_catalog_ref": "sources/linkage-contract-catalog.v1.json",
+  "source_catalog_sha256": "c259d33555ad4eace8e2b2b843e83e9a7f430ec43ec5e78e5fd5c651a4b1f89e"
+}

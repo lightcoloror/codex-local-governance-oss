@@ -15,6 +15,7 @@ local-governance --pack-root examples/metadata-pack build
 local-governance --pack-root examples/metadata-pack validate
 local-governance --pack-root examples/metadata-pack doctor-all --workspace-root examples/synthetic-workspace
 governance-contract --schema governance_assets/schemas/local-tool-task-receipt.v1.schema.json --document examples/task-receipt.synthetic.json --input-root examples
+governance-bundle
 python -m pytest -q
 ```
 
@@ -54,3 +55,21 @@ there is no task execution command, background worker, UI or network service.
 
 Use `PROVENANCE.json` and `THIRD_PARTY_NOTICES.md` for fixed sources, extraction
 and licensing. Local tests are offline synthetic checks, not deployed-tool tests.
+
+## Portable contract reference bundle
+
+Version 0.1.1 includes `contracts/portable/v1/portable-contract-bundle.v1.json`
+and the same bytes as installed package resources. `governance-bundle` reads the
+installed copy; `governance-bundle --bundle-root contracts/portable/v1` reads an
+explicit local copy. It verifies local hashes, schema structure, metadata
+boundaries and four synthetic example schemas. It never installs or runs the
+named tools, fetches sources, discovers a workspace, routes a job or grants
+approval. Pin the root bundle digest from a trusted source separately; a
+self-consistent rewritten bundle is not a signature or proof of origin.
+
+Seven stable IDs preserve the original contract meanings: material manifest,
+evidence bundle, content brief, review packet, service profile, closure run and
+local tool event. See [bundle scope](contracts/portable/v1/README.md) and
+`AVAILABILITY.json`. The optional native review renderer/lifecycle integration
+is not distributed. Its frozen public intake schema remains a consumer copy;
+another project's review receipt cannot replace its native behavior.

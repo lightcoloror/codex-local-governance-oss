@@ -1,0 +1,392 @@
+{
+  "as_of": "2026-11-07T12:12:00.004209+00:00",
+  "catalog_id": "public-self-media-contract-references",
+  "contracts": [
+    {
+      "authoritative_source": [
+        {
+          "authority": "authoritative",
+          "commit": "c9432cd98bafa69523722e3ab8e081f373fcb7fb",
+          "expected_sha256": "adcd2c3440de6b6d40518ac6e8c9cd63d1edc849d3150d911e2aa58bca2dc80e",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "web_content_fetcher/weixin_native_manifest.py",
+            "tool_id": "web-content-fetcher"
+          },
+          "native_contract": "weixin-native-document.v1",
+          "owner": "web-content-fetcher",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "native_ordered_document_validator"
+        },
+        {
+          "authority": "compatibility_reference",
+          "commit": "ef2bcddcc9227b914363f5c5f9a522dfb031b258",
+          "expected_sha256": "2d8c940e62a40a6fe7e4efc68dadc0104c50ea33a9b7973683025619f316988d",
+          "hash_mode": "raw_bytes",
+          "license": "AGPL-3.0-only",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "src/video_knowledge_pipeline/creative_contract_bridge.py",
+            "tool_id": "video-knowledge-pipeline"
+          },
+          "native_contract": "creative material contract bridge",
+          "owner": "video-knowledge-pipeline",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "video_material_compatibility_reference"
+        }
+      ],
+      "compatibility": [
+        {
+          "consumer": "content-studio-poc",
+          "fail_closed": true,
+          "mapping": "Public source-byte bindings and synthetic references only. Native payload and runtime gates remain with the named Owners; no current end-to-end interoperability is asserted by this catalog.",
+          "native_contract": "weixin-native-document.v1",
+          "producer": "web-content-fetcher",
+          "status": "proposal_only"
+        }
+      ],
+      "consumers": [
+        "content-studio-poc"
+      ],
+      "contract_id": "material-manifest.v1",
+      "facade_mode": "reference_envelope",
+      "migration": [
+        "Use the declared exact source bytes without rewriting native payload meaning.",
+        "Missing optional native Owners, unknown evidence and unresolved reviews remain blocked; metadata is not execution authority."
+      ],
+      "negative_fixture_set": "fixtures/contracts/linkage-negative-cases.json",
+      "positive_fixture": "fixtures/contracts/material-manifest.v1.json",
+      "producers": [
+        "web-content-fetcher",
+        "video-knowledge-pipeline"
+      ],
+      "rollback": [
+        "Remove this metadata facade and continue referring to the native contract by name.",
+        "Retain original inputs, evidence, hashes and manual review boundaries."
+      ],
+      "version_strategy": "Facade major v1 is stable; every native contract is pinned by owner, commit and SHA-256. Native patch upgrades require positive/negative fixture replay; native major changes require a new compatibility row and explicit owner migration."
+    },
+    {
+      "authoritative_source": [
+        {
+          "authority": "authoritative",
+          "commit": "646b3871257b0861446615e7c96390f5dc714bde",
+          "expected_sha256": "3c2e0e9a05034b1ffa3693735da128c7d3e114ddb155f11668120b974fee1009",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "schemas/research-output.v1.schema.json",
+            "tool_id": "question-research-poc"
+          },
+          "native_contract": "research-output.v1",
+          "owner": "question-research-poc",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "schema"
+        },
+        {
+          "authority": "authoritative",
+          "commit": "646b3871257b0861446615e7c96390f5dc714bde",
+          "expected_sha256": "27ae62971f6754009859be87f07a47d9673484c5dea32db0f48e13ce0779a97c",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "tests/fixtures/research-output-v1/canonical/research-output.v1.json",
+            "tool_id": "question-research-poc"
+          },
+          "native_contract": "research-output.v1",
+          "owner": "question-research-poc",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "canonical_fixture"
+        },
+        {
+          "authority": "compatibility_reference",
+          "commit": "9f1b2c03f2ee71fcb1bc7cbd4fe70e72db252161",
+          "expected_sha256": "04cbca796a6916c8e94282c82ca064932b348c3001c44849f1e4991bc6d8e744",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "src/research_workflow/contract.py",
+            "tool_id": "ai-research-workflow"
+          },
+          "native_contract": "research_workflow contract",
+          "owner": "ai-research-workflow",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "research_service_compatibility_reference"
+        },
+        {
+          "authority": "compatibility_reference",
+          "commit": "9f1b2c03f2ee71fcb1bc7cbd4fe70e72db252161",
+          "expected_sha256": "45ca3646368c220204b96995ecb4d1d3818b38a17a4d71ac2927e63d7ebbf4fc",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "src/research_workflow/evidence_bundle_reference.py",
+            "tool_id": "ai-research-workflow"
+          },
+          "native_contract": "research-output.v1 reference consumer",
+          "owner": "ai-research-workflow",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "evidence_bundle_consumer_adapter"
+        }
+      ],
+      "compatibility": [
+        {
+          "consumer": "ai-research-workflow",
+          "fail_closed": true,
+          "mapping": "Public source-byte bindings and synthetic references only. Native payload and runtime gates remain with the named Owners; no current end-to-end interoperability is asserted by this catalog.",
+          "native_contract": "research-output.v1",
+          "producer": "question-research-poc",
+          "status": "proposal_only"
+        }
+      ],
+      "consumers": [
+        "ai-research-workflow",
+        "content-studio-poc"
+      ],
+      "contract_id": "evidence-bundle.v1",
+      "facade_mode": "direct_canonical",
+      "migration": [
+        "Use the declared exact source bytes without rewriting native payload meaning.",
+        "Missing optional native Owners, unknown evidence and unresolved reviews remain blocked; metadata is not execution authority."
+      ],
+      "negative_fixture_set": "fixtures/contracts/linkage-negative-cases.json",
+      "positive_fixture": "fixtures/contracts/evidence-bundle.v1.json",
+      "producers": [
+        "question-research-poc"
+      ],
+      "rollback": [
+        "Remove this metadata facade and continue referring to the native contract by name.",
+        "Retain original inputs, evidence, hashes and manual review boundaries."
+      ],
+      "version_strategy": "research-output.v1 is the direct canonical payload. Schema hash or semantic-version drift blocks consumers until owner fixtures and downstream adapter tests pass."
+    },
+    {
+      "authoritative_source": [
+        {
+          "authority": "authoritative",
+          "commit": "49c3a4c4be735ca80816af87dc5241555ad9a600",
+          "expected_sha256": "be290561df0fa8dbfb2b235df4abdc91978b4bb40169e0cdf3a61f48100bfbcd",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "schemas/content-video-brief.v1.schema.json",
+            "tool_id": "content-studio"
+          },
+          "native_contract": "content-video-brief.v1",
+          "owner": "content-visual-studio",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "video_schema"
+        },
+        {
+          "authority": "frozen_consumer_copy",
+          "commit": null,
+          "expected_sha256": "70c65d7b8f47647e99f1698a178ecf57b624b9b09375df57fe8182fe66df8a8c",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "contracts/portable/v1/fixtures/native/content-video-brief.v1.json",
+            "tool_id": "codex-local-governance"
+          },
+          "native_contract": "content-video-brief.v1",
+          "owner": "codex-local-governance",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "frozen_consumer_fixture"
+        },
+        {
+          "authority": "frozen_consumer_copy",
+          "commit": null,
+          "expected_sha256": "d5a8e7b15528b8160f67b90ca870120dd80724553dbaa0770f346446e2395ecb",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "contracts/portable/v1/fixtures/native/content-video-brief.v1.schema.json",
+            "tool_id": "codex-local-governance"
+          },
+          "native_contract": "content-video-brief.v1",
+          "owner": "codex-local-governance",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "frozen_consumer_schema"
+        },
+        {
+          "authority": "authoritative",
+          "commit": "49c3a4c4be735ca80816af87dc5241555ad9a600",
+          "expected_sha256": "202b827b10c448594a37810fd307831d8410344df8d17f62896a2064f09885ad",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "schemas/content-item.schema.json",
+            "tool_id": "content-studio"
+          },
+          "native_contract": "content-item.schema.json",
+          "owner": "content-visual-studio",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "article_schema"
+        }
+      ],
+      "compatibility": [
+        {
+          "consumer": "mvp-video-pipeline",
+          "fail_closed": true,
+          "mapping": "Public source-byte bindings and synthetic references only. Native payload and runtime gates remain with the named Owners; no current end-to-end interoperability is asserted by this catalog.",
+          "native_contract": "content-video-brief.v1",
+          "producer": "content-studio-poc",
+          "status": "proposal_only"
+        }
+      ],
+      "consumers": [
+        "mvp-video-pipeline",
+        "human-review"
+      ],
+      "contract_id": "content-brief.v1",
+      "facade_mode": "tagged_variant",
+      "migration": [
+        "Use the declared exact source bytes without rewriting native payload meaning.",
+        "Missing optional native Owners, unknown evidence and unresolved reviews remain blocked; metadata is not execution authority."
+      ],
+      "negative_fixture_set": "fixtures/contracts/linkage-negative-cases.json",
+      "positive_fixture": "fixtures/contracts/content-brief.v1.json",
+      "producers": [
+        "content-studio-poc",
+        "content-creation-system"
+      ],
+      "rollback": [
+        "Remove this metadata facade and continue referring to the native contract by name.",
+        "Retain original inputs, evidence, hashes and manual review boundaries."
+      ],
+      "version_strategy": "content-brief.v1 is a tagged facade. Video uses content-video-brief.v1; article uses content-item v0.2 restricted to candidate/outline/draft/review. Optional renderer enum and artifact-dependency additions are backward-compatible for existing payloads but require explicit consumer adoption for new values. Unknown variants, malformed dependencies and publication-state upgrades fail closed."
+    },
+    {
+      "authoritative_source": [
+        {
+          "authority": "frozen_consumer_copy",
+          "commit": "34f6c1322391bc92253d763b9e03677402a2b869",
+          "expected_sha256": "b4994455c99e0a367198981fa93526432e65e922ff8c2cf74dd3eaedef7f6131",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "schemas/review-intake.v0.2.schema.json",
+            "tool_id": "content-creation-system"
+          },
+          "native_contract": "attention intake schema",
+          "owner": "self-media-creation-system",
+          "provenance_note": "Already-public frozen consumer copy in self-media-creation-system/schemas/review-intake.v0.2.schema.json. Native attention-firewall-cockpit/work-lifecycle-core ownership is unchanged. Those optional implementations are not distributed by this bundle; this copy grants no runtime readiness or approval.",
+          "role": "frozen_intake_schema"
+        }
+      ],
+      "compatibility": [
+        {
+          "consumer": "human-review",
+          "fail_closed": true,
+          "mapping": "The original optional native review renderer and lifecycle fallback are not distributed. Only an exact frozen intake schema and synthetic example are available; do not substitute another review receipt or execute this metadata.",
+          "native_contract": "attention intake schema",
+          "producer": "attention-firewall-cockpit",
+          "status": "blocked"
+        }
+      ],
+      "consumers": [
+        "human-review"
+      ],
+      "contract_id": "review-packet.v1",
+      "facade_mode": "normalized_view",
+      "migration": [
+        "Use the declared exact source bytes without rewriting native payload meaning.",
+        "Missing optional native Owners, unknown evidence and unresolved reviews remain blocked; metadata is not execution authority."
+      ],
+      "negative_fixture_set": "fixtures/contracts/linkage-negative-cases.json",
+      "positive_fixture": "fixtures/contracts/review-packet.v1.json",
+      "producers": [
+        "attention-firewall-cockpit",
+        "work-lifecycle-core"
+      ],
+      "rollback": [
+        "Remove this metadata facade and continue referring to the native contract by name.",
+        "Retain original inputs, evidence, hashes and manual review boundaries."
+      ],
+      "version_strategy": "review-packet.v1 is a normalized view over attention-review-packet.v0.1 plus lifecycle completeness. Existing native packet remains unchanged; a new facade major is required for additional decision questions or execution semantics."
+    },
+    {
+      "authoritative_source": [
+        {
+          "authority": "authoritative",
+          "commit": null,
+          "expected_sha256": "976b055f373e3b30ac740802910ee12f29cca353e25126464cb8433ee7f5ae28",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "contracts/portable/v1/schemas/service-profile.v1.schema.json",
+            "tool_id": "codex-local-governance"
+          },
+          "native_contract": "service-profile.v1",
+          "owner": "codex-local-governance",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "schema"
+        },
+        {
+          "authority": "compatibility_reference",
+          "commit": "9f1b2c03f2ee71fcb1bc7cbd4fe70e72db252161",
+          "expected_sha256": "a606855e4df1dbfa5e924c53cfa3ba9bb42ab1d15ea21b54ebf071fe245b9c80",
+          "hash_mode": "raw_bytes",
+          "license": "Apache-2.0",
+          "locator": {
+            "kind": "registry_tool_relative",
+            "relative_path": "src/research_workflow/service_state_contract.py",
+            "tool_id": "ai-research-workflow"
+          },
+          "native_contract": "research_workflow.service_state.v1",
+          "owner": "ai-research-workflow",
+          "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+          "role": "service_state_compatibility_reference"
+        }
+      ],
+      "compatibility": [
+        {
+          "consumer": "external-agents-readonly",
+          "fail_closed": true,
+          "mapping": "Public source-byte bindings and synthetic references only. Native payload and runtime gates remain with the named Owners; no current end-to-end interoperability is asserted by this catalog.",
+          "native_contract": "service-profile.v1",
+          "producer": "ai-research-workflow",
+          "status": "proposal_only"
+        }
+      ],
+      "consumers": [
+        "external-agents-readonly"
+      ],
+      "contract_id": "service-profile.v1",
+      "facade_mode": "normalized_view",
+      "migration": [
+        "Use the declared exact source bytes without rewriting native payload meaning.",
+        "Missing optional native Owners, unknown evidence and unresolved reviews remain blocked; metadata is not execution authority."
+      ],
+      "negative_fixture_set": "fixtures/contracts/linkage-negative-cases.json",
+      "positive_fixture": "fixtures/contracts/service-profile.v1.json",
+      "producers": [
+        "ai-research-workflow",
+        "video-knowledge-pipeline"
+      ],
+      "rollback": [
+        "Remove this metadata facade and continue referring to the native contract by name.",
+        "Retain original inputs, evidence, hashes and manual review boundaries."
+      ],
+      "version_strategy": "service-profile.v1 only projects existing status evidence. New statuses require schema and fixture updates; state source_ref, checked_at, TTL and freshness are mandatory. A single online flag is never accepted."
+    }
+  ],
+  "global_invariants": {
+    "business_state_machine_created": false,
+    "cross_owner_writes_authorized": false,
+    "metadata_authorizes_execution": false,
+    "parallel_registry_created": false
+  },
+  "schema_version": "linkage-contract-catalog.v1"
+}

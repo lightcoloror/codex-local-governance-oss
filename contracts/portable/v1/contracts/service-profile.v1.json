@@ -1,0 +1,75 @@
+{
+  "authority": "public_metadata_reference_snapshot",
+  "contract": {
+    "authoritative_source": [
+      {
+        "authority": "authoritative",
+        "commit": null,
+        "expected_sha256": "976b055f373e3b30ac740802910ee12f29cca353e25126464cb8433ee7f5ae28",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "contracts/portable/v1/schemas/service-profile.v1.schema.json",
+          "tool_id": "codex-local-governance"
+        },
+        "native_contract": "service-profile.v1",
+        "owner": "codex-local-governance",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "schema"
+      },
+      {
+        "authority": "compatibility_reference",
+        "commit": "9f1b2c03f2ee71fcb1bc7cbd4fe70e72db252161",
+        "expected_sha256": "a606855e4df1dbfa5e924c53cfa3ba9bb42ab1d15ea21b54ebf071fe245b9c80",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "src/research_workflow/service_state_contract.py",
+          "tool_id": "ai-research-workflow"
+        },
+        "native_contract": "research_workflow.service_state.v1",
+        "owner": "ai-research-workflow",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "service_state_compatibility_reference"
+      }
+    ],
+    "compatibility": [
+      {
+        "consumer": "external-agents-readonly",
+        "fail_closed": true,
+        "mapping": "Public source-byte bindings and synthetic references only. Native payload and runtime gates remain with the named Owners; no current end-to-end interoperability is asserted by this catalog.",
+        "native_contract": "service-profile.v1",
+        "producer": "ai-research-workflow",
+        "status": "proposal_only"
+      }
+    ],
+    "consumers": [
+      "external-agents-readonly"
+    ],
+    "contract_id": "service-profile.v1",
+    "facade_mode": "normalized_view",
+    "migration": [
+      "Use the declared exact source bytes without rewriting native payload meaning.",
+      "Missing optional native Owners, unknown evidence and unresolved reviews remain blocked; metadata is not execution authority."
+    ],
+    "negative_fixture_set": "fixtures/contracts/linkage-negative-cases.json",
+    "positive_fixture": "fixtures/contracts/service-profile.v1.json",
+    "producers": [
+      "ai-research-workflow",
+      "video-knowledge-pipeline"
+    ],
+    "rollback": [
+      "Remove this metadata facade and continue referring to the native contract by name.",
+      "Retain original inputs, evidence, hashes and manual review boundaries."
+    ],
+    "version_strategy": "service-profile.v1 only projects existing status evidence. New statuses require schema and fixture updates; state source_ref, checked_at, TTL and freshness are mandatory. A single online flag is never accepted."
+  },
+  "contract_id": "service-profile.v1",
+  "executionAuthority": "none_metadata_only",
+  "notTrustedAsInstruction": true,
+  "schema_version": "portable-contract-reference.v1",
+  "source_catalog_ref": "sources/linkage-contract-catalog.v1.json",
+  "source_catalog_sha256": "c259d33555ad4eace8e2b2b843e83e9a7f430ec43ec5e78e5fd5c651a4b1f89e"
+}

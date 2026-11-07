@@ -1,0 +1,66 @@
+{
+  "schema_version": "public-toolchain-lock.v1",
+  "execution_authority": "none",
+  "network_or_install_performed": false,
+  "tools": {
+    "content-creation-system": {
+      "directory": "self-media-creation-system",
+      "discovery": "AGENT_DISCOVERY.md",
+      "repository": null,
+      "commit": null,
+      "source_status": "review-candidate-local-framework",
+      "commands": {
+        "self_media_resolve": "python scripts/self_media_agent.py resolve --request <task.json>",
+        "self_media_operations": "python scripts/self_media_agent.py operations",
+        "content_operations_help": "python scripts/content_operations_cycle.py --help",
+        "content_operations_record_publication": "python scripts/content_operations_cycle.py record-publication --store <store> --input <input.json>",
+        "content_operations_record_snapshot": "python scripts/content_operations_cycle.py record-snapshot --store <store> --input <input.json>",
+        "content_operations_validate_store": "python scripts/content_operations_cycle.py validate-store --store <store>"
+      }
+    },
+    "question-research-poc": {
+      "directory": "question-research-poc",
+      "discovery": "AGENT_DISCOVERY.md",
+      "repository": "https://github.com/lightcoloror/question-research-poc-oss",
+      "commit": "646b3871257b0861446615e7c96390f5dc714bde",
+      "source_status": "published-public-source",
+      "commands": {
+        "help": "python -m question_research_poc --help"
+      }
+    },
+    "video-knowledge-pipeline": {
+      "directory": "video-knowledge-pipeline",
+      "discovery": "AGENT_DISCOVERY.md",
+      "repository": "https://github.com/lightcoloror/video-knowledge-pipeline-oss",
+      "commit": "ef2bcddcc9227b914363f5c5f9a522dfb031b258",
+      "source_status": "published-public-source-consumer-coverage-limited",
+      "commands": {
+        "help": "vkp --help"
+      }
+    },
+    "mvp-video-pipeline": {
+      "directory": "ai-video-tools-20260708/mvp-video-pipeline",
+      "discovery": "AGENT_DISCOVERY.md",
+      "repository": null,
+      "commit": null,
+      "source_status": "full-owner-not-public-do-not-substitute-rough-cut",
+      "commands": {}
+    },
+    "content-studio": {
+      "directory": "content-studio-poc",
+      "discovery": "README.md",
+      "repository": "https://github.com/lightcoloror/content-visual-studio-oss",
+      "commit": "2b09061f3a250bb50a0492509b83302cc4aa5c57",
+      "source_status": "published-capture-context-and-format-consumers-remaining-workbench-under-review",
+      "commands": {}
+    },
+    "artifact-lifecycle-core": {
+      "directory": "artifact-lifecycle-core",
+      "discovery": "README.md",
+      "repository": "https://github.com/lightcoloror/artifact-lifecycle-core-oss",
+      "commit": "fab239085724458c2a6b9452d0a1ba4f4012593e",
+      "source_status": "published-public-source",
+      "commands": {}
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "local://local-tools/contracts/linkage-contract-catalog.v1.schema.json",
+  "title": "Local tool linkage contract catalog v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "catalog_id", "as_of", "contracts", "global_invariants"],
+  "properties": {
+    "schema_version": {"const": "linkage-contract-catalog.v1"},
+    "catalog_id": {"type": "string", "minLength": 1},
+    "as_of": {"type": "string", "format": "date-time"},
+    "contracts": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {"$ref": "#/$defs/contract"}
+    },
+    "global_invariants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parallel_registry_created", "business_state_machine_created", "metadata_authorizes_execution", "cross_owner_writes_authorized"],
+      "properties": {
+        "parallel_registry_created": {"const": false},
+        "business_state_machine_created": {"const": false},
+        "metadata_authorizes_execution": {"const": false},
+        "cross_owner_writes_authorized": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "relative_path"],
+      "properties": {
+        "kind": {"enum": ["registry_tool_relative", "workspace_relative"]},
+        "tool_id": {"type": "string"},
+        "relative_path": {"type": "string", "minLength": 1}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "owner", "native_contract", "locator", "expected_sha256", "commit", "license", "authority"],
+      "properties": {
+        "role": {"type": "string", "minLength": 1},
+        "owner": {"type": "string", "minLength": 1},
+        "native_contract": {"type": "string", "minLength": 1},
+        "locator": {"$ref": "#/$defs/locator"},
+        "expected_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "hash_mode": {"enum": ["raw_bytes", "utf8_lf_normalized"]},
+        "commit": {"type": ["string", "null"]},
+        "license": {"type": ["string", "null"]},
+        "authority": {"enum": ["authoritative", "frozen_consumer_copy", "compatibility_reference"]},
+        "provenance_note": {"type": "string"}
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["producer", "consumer", "native_contract", "status", "mapping", "fail_closed"],
+      "properties": {
+        "producer": {"type": "string", "minLength": 1},
+        "consumer": {"type": "string", "minLength": 1},
+        "native_contract": {"type": "string", "minLength": 1},
+        "status": {"enum": ["direct_verified", "compatible_facade_verified", "proposal_only", "blocked"]},
+        "mapping": {"type": "string", "minLength": 1},
+        "fail_closed": {"const": true}
+      }
+    },
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_id", "facade_mode", "authoritative_source", "producers", "consumers", "version_strategy", "compatibility", "positive_fixture", "negative_fixture_set", "migration", "rollback"],
+      "properties": {
+        "contract_id": {"enum": ["material-manifest.v1", "evidence-bundle.v1", "content-brief.v1", "review-packet.v1", "service-profile.v1"]},
+        "facade_mode": {"enum": ["reference_envelope", "direct_canonical", "tagged_variant", "normalized_view"]},
+        "authoritative_source": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/source"}},
+        "producers": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+        "consumers": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+        "version_strategy": {"type": "string", "minLength": 1},
+        "compatibility": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/compatibility"}},
+        "positive_fixture": {"type": "string", "minLength": 1},
+        "negative_fixture_set": {"type": "string", "minLength": 1},
+        "migration": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "rollback": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    }
+  }
+}

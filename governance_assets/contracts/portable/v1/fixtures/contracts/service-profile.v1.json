@@ -1,0 +1,71 @@
+{
+  "facade_contract": "service-profile.v1",
+  "fixture_schema": "linkage-positive-fixture.v1",
+  "metadata": {
+    "execution_authorized": false,
+    "external_io_performed": false,
+    "synthetic_only": true
+  },
+  "native_contract": "local-tools-status-summary.v1",
+  "payload": {
+    "actionability": {
+      "authorizes_side_effects": false,
+      "checked_at": "2026-08-09T09:00:00+08:00",
+      "freshness": "fresh",
+      "reason_codes": [
+        "manual_start_required"
+      ],
+      "source_ref": "fixture://actionability",
+      "status": "blocked",
+      "ttl_seconds": 86400
+    },
+    "freshness": {
+      "checked_at": "2026-08-09T09:00:00+08:00",
+      "overall": "fresh",
+      "source_ref": "fixture://summary",
+      "ttl_seconds": 86400
+    },
+    "invariants": {
+      "metadata_authorizes_execution": false,
+      "online_is_not_execution_authority": true,
+      "registration_is_not_runtime": true,
+      "runtime_is_not_actionability": true,
+      "runtime_is_not_ui": true
+    },
+    "registration": {
+      "checked_at": "2026-08-09T09:00:00+08:00",
+      "freshness": "not_applicable",
+      "reason_codes": [
+        "registry_declaration_only"
+      ],
+      "source_ref": "fixture://registry",
+      "status": "registered",
+      "ttl_seconds": null
+    },
+    "runtime": {
+      "checked_at": "2026-08-09T09:00:00+08:00",
+      "freshness": "fresh",
+      "reason_codes": [
+        "listener_absent",
+        "manual_start_only"
+      ],
+      "source_ref": "fixture://runtime",
+      "status": "stopped_by_design",
+      "ttl_seconds": 86400
+    },
+    "schema_version": "service-profile.v1",
+    "service_id": "synthetic-offline-service",
+    "ui": {
+      "checked_at": "2026-08-09T09:00:00+08:00",
+      "freshness": "fresh",
+      "reason_codes": [
+        "manual_external_open"
+      ],
+      "source_ref": "fixture://ui",
+      "status": "metadata_only",
+      "ttl_seconds": 86400
+    }
+  },
+  "payload_mode": "embedded",
+  "producer": "local-tools"
+}

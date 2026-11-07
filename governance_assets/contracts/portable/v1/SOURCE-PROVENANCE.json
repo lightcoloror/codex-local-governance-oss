@@ -1,0 +1,368 @@
+{
+  "current_owner_binding_evidence": {
+    "commit": "34f6c1322391bc92253d763b9e03677402a2b869",
+    "function": "validate_public_content_owner",
+    "meaning": "Current public main requires the Studio content-item schema and the shared copy to be byte-equal. This does not assert equality to a different historical schema hash.",
+    "path": "self-media-creation-system/scripts/check_self_media_contracts.py",
+    "repository": "https://github.com/lightcoloror/self-media-creation-system-oss",
+    "sha256": "ad7c050e4dd5c2fe57950572750b3d88dcca857a5301a8f461b0de4f294ba25e"
+  },
+  "distribution_notes": [
+    "Changed catalog/wrappers are public metadata proposals, not an execution registry or current runtime verification.",
+    "exact_generated_snapshot means byte identity within this distribution. Original hashes and changes are recorded separately in sources[].",
+    "Declared third-party package source bindings reference files only; AGPL implementations are not copied or relicensed by this Apache metadata package."
+  ],
+  "first_party_license": "Apache-2.0",
+  "format": "public-portable-contract-distribution.v1",
+  "native_source_bindings": [
+    {
+      "authority": "authoritative",
+      "commit": "c9432cd98bafa69523722e3ab8e081f373fcb7fb",
+      "expected_sha256": "adcd2c3440de6b6d40518ac6e8c9cd63d1edc849d3150d911e2aa58bca2dc80e",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "web_content_fetcher/weixin_native_manifest.py",
+        "tool_id": "web-content-fetcher"
+      },
+      "native_contract": "weixin-native-document.v1",
+      "owner": "web-content-fetcher",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "native_ordered_document_validator"
+    },
+    {
+      "authority": "compatibility_reference",
+      "commit": "ef2bcddcc9227b914363f5c5f9a522dfb031b258",
+      "expected_sha256": "2d8c940e62a40a6fe7e4efc68dadc0104c50ea33a9b7973683025619f316988d",
+      "hash_mode": "raw_bytes",
+      "license": "AGPL-3.0-only",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "src/video_knowledge_pipeline/creative_contract_bridge.py",
+        "tool_id": "video-knowledge-pipeline"
+      },
+      "native_contract": "creative material contract bridge",
+      "owner": "video-knowledge-pipeline",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "video_material_compatibility_reference"
+    },
+    {
+      "authority": "authoritative",
+      "commit": "646b3871257b0861446615e7c96390f5dc714bde",
+      "expected_sha256": "3c2e0e9a05034b1ffa3693735da128c7d3e114ddb155f11668120b974fee1009",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "schemas/research-output.v1.schema.json",
+        "tool_id": "question-research-poc"
+      },
+      "native_contract": "research-output.v1",
+      "owner": "question-research-poc",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "schema"
+    },
+    {
+      "authority": "authoritative",
+      "commit": "646b3871257b0861446615e7c96390f5dc714bde",
+      "expected_sha256": "27ae62971f6754009859be87f07a47d9673484c5dea32db0f48e13ce0779a97c",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "tests/fixtures/research-output-v1/canonical/research-output.v1.json",
+        "tool_id": "question-research-poc"
+      },
+      "native_contract": "research-output.v1",
+      "owner": "question-research-poc",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "canonical_fixture"
+    },
+    {
+      "authority": "compatibility_reference",
+      "commit": "9f1b2c03f2ee71fcb1bc7cbd4fe70e72db252161",
+      "expected_sha256": "04cbca796a6916c8e94282c82ca064932b348c3001c44849f1e4991bc6d8e744",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "src/research_workflow/contract.py",
+        "tool_id": "ai-research-workflow"
+      },
+      "native_contract": "research_workflow contract",
+      "owner": "ai-research-workflow",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "research_service_compatibility_reference"
+    },
+    {
+      "authority": "compatibility_reference",
+      "commit": "9f1b2c03f2ee71fcb1bc7cbd4fe70e72db252161",
+      "expected_sha256": "45ca3646368c220204b96995ecb4d1d3818b38a17a4d71ac2927e63d7ebbf4fc",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "src/research_workflow/evidence_bundle_reference.py",
+        "tool_id": "ai-research-workflow"
+      },
+      "native_contract": "research-output.v1 reference consumer",
+      "owner": "ai-research-workflow",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "evidence_bundle_consumer_adapter"
+    },
+    {
+      "authority": "authoritative",
+      "commit": "49c3a4c4be735ca80816af87dc5241555ad9a600",
+      "expected_sha256": "be290561df0fa8dbfb2b235df4abdc91978b4bb40169e0cdf3a61f48100bfbcd",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "schemas/content-video-brief.v1.schema.json",
+        "tool_id": "content-studio"
+      },
+      "native_contract": "content-video-brief.v1",
+      "owner": "content-visual-studio",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "video_schema"
+    },
+    {
+      "authority": "frozen_consumer_copy",
+      "commit": null,
+      "expected_sha256": "70c65d7b8f47647e99f1698a178ecf57b624b9b09375df57fe8182fe66df8a8c",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "contracts/portable/v1/fixtures/native/content-video-brief.v1.json",
+        "tool_id": "codex-local-governance"
+      },
+      "native_contract": "content-video-brief.v1",
+      "owner": "codex-local-governance",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "frozen_consumer_fixture"
+    },
+    {
+      "authority": "frozen_consumer_copy",
+      "commit": null,
+      "expected_sha256": "d5a8e7b15528b8160f67b90ca870120dd80724553dbaa0770f346446e2395ecb",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "contracts/portable/v1/fixtures/native/content-video-brief.v1.schema.json",
+        "tool_id": "codex-local-governance"
+      },
+      "native_contract": "content-video-brief.v1",
+      "owner": "codex-local-governance",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "frozen_consumer_schema"
+    },
+    {
+      "authority": "authoritative",
+      "commit": "49c3a4c4be735ca80816af87dc5241555ad9a600",
+      "expected_sha256": "202b827b10c448594a37810fd307831d8410344df8d17f62896a2064f09885ad",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "schemas/content-item.schema.json",
+        "tool_id": "content-studio"
+      },
+      "native_contract": "content-item.schema.json",
+      "owner": "content-visual-studio",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "article_schema"
+    },
+    {
+      "authority": "frozen_consumer_copy",
+      "commit": "34f6c1322391bc92253d763b9e03677402a2b869",
+      "expected_sha256": "b4994455c99e0a367198981fa93526432e65e922ff8c2cf74dd3eaedef7f6131",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "schemas/review-intake.v0.2.schema.json",
+        "tool_id": "content-creation-system"
+      },
+      "native_contract": "attention intake schema",
+      "owner": "self-media-creation-system",
+      "provenance_note": "Already-public frozen consumer copy in self-media-creation-system/schemas/review-intake.v0.2.schema.json. Native attention-firewall-cockpit/work-lifecycle-core ownership is unchanged. Those optional implementations are not distributed by this bundle; this copy grants no runtime readiness or approval.",
+      "role": "frozen_intake_schema"
+    },
+    {
+      "authority": "authoritative",
+      "commit": null,
+      "expected_sha256": "976b055f373e3b30ac740802910ee12f29cca353e25126464cb8433ee7f5ae28",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "contracts/portable/v1/schemas/service-profile.v1.schema.json",
+        "tool_id": "codex-local-governance"
+      },
+      "native_contract": "service-profile.v1",
+      "owner": "codex-local-governance",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "schema"
+    },
+    {
+      "authority": "compatibility_reference",
+      "commit": "9f1b2c03f2ee71fcb1bc7cbd4fe70e72db252161",
+      "expected_sha256": "a606855e4df1dbfa5e924c53cfa3ba9bb42ab1d15ea21b54ebf071fe245b9c80",
+      "hash_mode": "raw_bytes",
+      "license": "Apache-2.0",
+      "locator": {
+        "kind": "registry_tool_relative",
+        "relative_path": "src/research_workflow/service_state_contract.py",
+        "tool_id": "ai-research-workflow"
+      },
+      "native_contract": "research_workflow.service_state.v1",
+      "owner": "ai-research-workflow",
+      "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+      "role": "service_state_compatibility_reference"
+    }
+  ],
+  "private_inventory_or_operational_receipts_copied": false,
+  "runtime_compatibility_claimed": false,
+  "source_catalog_is_public_subset": true,
+  "sources": [
+    {
+      "path": "schemas/linkage-contract-catalog.v1.schema.json",
+      "public_sha256": "773d26b5e06c420ed97fa80fbcc8b6a750fd2367d31852cfde8df684c6f8d274",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party RCP snapshot",
+      "source_path": "contracts/portable/v1/schemas/linkage-contract-catalog.v1.schema.json",
+      "source_sha256": "773d26b5e06c420ed97fa80fbcc8b6a750fd2367d31852cfde8df684c6f8d274"
+    },
+    {
+      "path": "schemas/service-profile.v1.schema.json",
+      "public_sha256": "976b055f373e3b30ac740802910ee12f29cca353e25126464cb8433ee7f5ae28",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party RCP snapshot",
+      "source_path": "contracts/portable/v1/schemas/service-profile.v1.schema.json",
+      "source_sha256": "976b055f373e3b30ac740802910ee12f29cca353e25126464cb8433ee7f5ae28"
+    },
+    {
+      "path": "schemas/local-tool-closure-run.v2.schema.json",
+      "public_sha256": "4f46866726e6406bffcea4553fffee205874a32ef59b132f8c4f7bf1b3880f21",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party RCP snapshot",
+      "source_path": "contracts/portable/v1/schemas/local-tool-closure-run.v2.schema.json",
+      "source_sha256": "4f46866726e6406bffcea4553fffee205874a32ef59b132f8c4f7bf1b3880f21"
+    },
+    {
+      "path": "schemas/closure-truth.v1.schema.json",
+      "public_sha256": "7c9ea0700599e85854b6bc776dde13e5489a0d0884d546b9f6a0b20f3343c8a4",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party RCP snapshot",
+      "source_path": "contracts/portable/v1/schemas/closure-truth.v1.schema.json",
+      "source_sha256": "7c9ea0700599e85854b6bc776dde13e5489a0d0884d546b9f6a0b20f3343c8a4"
+    },
+    {
+      "path": "schemas/local-tool-event.v1.schema.json",
+      "public_sha256": "af9f7f071f6ac0c030306449902658682eb84e6631b2f0b014714cdcf59d4338",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party RCP snapshot",
+      "source_path": "contracts/portable/v1/schemas/local-tool-event.v1.schema.json",
+      "source_sha256": "af9f7f071f6ac0c030306449902658682eb84e6631b2f0b014714cdcf59d4338"
+    },
+    {
+      "path": "schemas/portable-contract-bundle.v1.schema.json",
+      "public_sha256": "a009cddd1ff2158cb0f5d0d3cefa1d15ab2f8014c55af95caef6d3f91e52c263",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party RCP snapshot",
+      "source_path": "portability/schemas/portable-contract-bundle.v1.schema.json",
+      "source_sha256": "a009cddd1ff2158cb0f5d0d3cefa1d15ab2f8014c55af95caef6d3f91e52c263"
+    },
+    {
+      "adaptation": "Explicit outer synthetic-only metadata; payload preserved",
+      "path": "fixtures/contracts/closure-run.v1.json",
+      "public_sha256": "7c55b9facde70a1f15276c03efe64dae39a3035ba374ff99427bdf94e6b13070",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party synthetic fixture",
+      "source_path": "contracts/portable/v1/fixtures/contracts/closure-run.v1.json",
+      "source_sha256": "a5af57c741028bef55f70cc4e46f1f740e4d72e242fa2eb3538cacd5acf348ef"
+    },
+    {
+      "adaptation": "Explicit outer synthetic-only metadata; payload preserved",
+      "path": "fixtures/contracts/content-brief.v1.json",
+      "public_sha256": "7bcbc829e8d50a36c13446581cb482784111e7595bd70c28e47014dbf066d8a6",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party synthetic fixture",
+      "source_path": "contracts/portable/v1/fixtures/contracts/content-brief.v1.json",
+      "source_sha256": "5b0a7a0b2733dc2742dfb38ebaa03a8bb7d68305e62c2394248921584bd29b6b"
+    },
+    {
+      "adaptation": "Explicit outer synthetic-only metadata; payload preserved",
+      "path": "fixtures/contracts/evidence-bundle.v1.json",
+      "public_sha256": "2ec93d78a910ec07939d0f33f93a97906f552d7a22114afd1c58a6bd9f34c425",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party synthetic fixture",
+      "source_path": "contracts/portable/v1/fixtures/contracts/evidence-bundle.v1.json",
+      "source_sha256": "df6340aec7a7890787488b21052ec4eeff611daf4b742a5c477dac1a5be77749"
+    },
+    {
+      "adaptation": "Explicit outer synthetic-only metadata; payload preserved",
+      "path": "fixtures/contracts/local-tool-event.v1.json",
+      "public_sha256": "a44353695199d70b48d4044ffaa98c18ee87fc2686c043c80453285826892d44",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party synthetic fixture",
+      "source_path": "contracts/portable/v1/fixtures/contracts/local-tool-event.v1.json",
+      "source_sha256": "bff51cd16814a42eb4d4e365fc641cd804b6cc73b995c5d3590dd85142008143"
+    },
+    {
+      "adaptation": "Explicit outer synthetic-only metadata; payload preserved",
+      "path": "fixtures/contracts/material-manifest.v1.json",
+      "public_sha256": "7da32e404d7d5717ff486009000c685340b3cb1d61fa1e651a784f9c08da6a91",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party synthetic fixture",
+      "source_path": "contracts/portable/v1/fixtures/contracts/material-manifest.v1.json",
+      "source_sha256": "0efa6890b64d57c23a8f78d80aabbc93c1522e8916781a2abe8a0051a6664ddf"
+    },
+    {
+      "adaptation": "Explicit outer synthetic-only metadata; payload preserved",
+      "path": "fixtures/contracts/review-packet.v1.json",
+      "public_sha256": "5eaa12a0182196e10dfaca942c1140d5c64f55c30996283adee702510c79f1db",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party synthetic fixture",
+      "source_path": "contracts/portable/v1/fixtures/contracts/review-packet.v1.json",
+      "source_sha256": "e382314916080b553ae3b4aa1bbd35ceb243a2ff84ee1c87a2503ad2bf76e40e"
+    },
+    {
+      "adaptation": "Explicit outer synthetic-only metadata; payload preserved",
+      "path": "fixtures/contracts/service-profile.v1.json",
+      "public_sha256": "640dbf06bf2539184a13dd0f2add86081aec5965c344ceb3e1097518e6b061fb",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party synthetic fixture",
+      "source_path": "contracts/portable/v1/fixtures/contracts/service-profile.v1.json",
+      "source_sha256": "fa42616369f4bfc88344560331517d4d41441ef1e65dd3ecac70006b26ed68fe"
+    },
+    {
+      "adaptation": "Explicit outer synthetic-only metadata; payload preserved",
+      "path": "fixtures/contracts/linkage-negative-cases.json",
+      "public_sha256": "10e15d3a8e78f52ea811012e3bf367eb1b28a86146057b8816fe65b524c28d3d",
+      "source_commit": "b99d1bf20d535e82222bf5e654a0bfec2161f4ee",
+      "source_license": "Apache-2.0 first-party synthetic fixture",
+      "source_path": "contracts/portable/v1/fixtures/contracts/linkage-negative-cases.json",
+      "source_sha256": "2c8e576b5681b7497f913387f619020cd4cb16186004778c60bb74f8b8169e8a"
+    },
+    {
+      "path": "fixtures/native/content-video-brief.v1.json",
+      "public_sha256": "70c65d7b8f47647e99f1698a178ecf57b624b9b09375df57fe8182fe66df8a8c",
+      "source_commit": "14c4af03ed34ce2433d9c22dd2f753c2fed8bc83",
+      "source_license": "Apache-2.0 first-party explicitly synthetic consumer fixture",
+      "source_path": "tests/fixtures/content-video-brief-v1/upstream-canonical/content-video-brief.v1.json",
+      "source_sha256": "70c65d7b8f47647e99f1698a178ecf57b624b9b09375df57fe8182fe66df8a8c"
+    },
+    {
+      "path": "fixtures/native/content-video-brief.v1.schema.json",
+      "public_sha256": "d5a8e7b15528b8160f67b90ca870120dd80724553dbaa0770f346446e2395ecb",
+      "source_commit": "14c4af03ed34ce2433d9c22dd2f753c2fed8bc83",
+      "source_license": "Apache-2.0 first-party explicitly synthetic consumer fixture",
+      "source_path": "tests/fixtures/content-video-brief-v1/upstream-canonical/content-video-brief.v1.schema.json",
+      "source_sha256": "d5a8e7b15528b8160f67b90ca870120dd80724553dbaa0770f346446e2395ecb"
+    }
+  ]
+}

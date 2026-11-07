@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/schemas/local-tool-closure-run.v2.schema.json",
+  "title": "Local Tools closure control-plane run v2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "closure_run_id",
+    "status",
+    "input_fingerprints",
+    "implementation_fingerprints",
+    "contract_versions",
+    "resume_entry",
+    "metadata_authorizes_execution"
+  ],
+  "properties": {
+    "schema_version": { "const": "local-tool-closure-run.v2" },
+    "closure_run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,79}$"
+    },
+    "status": {
+      "enum": ["created", "in_progress", "completed", "failed"]
+    },
+    "profile": { "type": "string", "minLength": 1 },
+    "max_workers": { "type": "integer", "minimum": 1, "maximum": 2 },
+    "cache_ttl_seconds": { "type": "integer", "minimum": 0 },
+    "input_fingerprints": {
+      "type": "object",
+      "required": [
+        "registry",
+        "source_inventory",
+        "closure_catalog",
+        "linkage_catalog",
+        "owner_routing"
+      ],
+      "additionalProperties": { "$ref": "#/$defs/fingerprint" }
+    },
+    "implementation_fingerprints": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/fingerprint" }
+    },
+    "contract_versions": {
+      "type": "object",
+      "required": ["closure_catalog", "closure_truth", "health_snapshot", "control_plane"]
+    },
+    "stages": {
+      "type": "array",
+      "const": ["health", "linkage", "closure"]
+    },
+    "completed_stages": {
+      "type": "array",
+      "items": { "enum": ["health", "linkage", "closure"] },
+      "uniqueItems": true
+    },
+    "failure_point": {
+      "type": ["string", "null"]
+    },
+    "resume_entry": { "type": "string", "minLength": 1 },
+    "metadata_authorizes_execution": { "const": false }
+  },
+  "$defs": {
+    "fingerprint": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

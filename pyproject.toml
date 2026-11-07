@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "codex-local-governance"
-version = "0.1.0"
+version = "0.1.1"
 description = "Offline metadata-only manifests and hash-bound contract validation"
 requires-python = ">=3.10"
 license = "Apache-2.0"
@@ -16,9 +16,10 @@ test = ["pytest>=8,<10"]
 [project.scripts]
 local-governance = "portable_local_tools:main"
 governance-contract = "contract_integrity:main"
+governance-bundle = "portable_contracts:main"
 
 [tool.setuptools]
-py-modules = ["portable_local_tools", "contract_integrity"]
+py-modules = ["portable_local_tools", "contract_integrity", "portable_contracts"]
 include-package-data = true
 
 [tool.setuptools.packages.find]
@@ -26,4 +27,4 @@ include = ["governance_assets*"]
 namespaces = true
 
 [tool.setuptools.package-data]
-governance_assets = ["schemas/*.json", "src/*.py", "portability/schemas/*.json"]
+governance_assets = ["schemas/*.json", "src/*.py", "portability/schemas/*.json", "contracts/portable/v1/*.json", "contracts/portable/v1/*.md", "contracts/portable/v1/*/*.json", "contracts/portable/v1/fixtures/*/*.json"]

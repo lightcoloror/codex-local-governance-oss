@@ -1,0 +1,75 @@
+{
+  "authority": "public_metadata_reference_snapshot",
+  "contract": {
+    "authoritative_source": [
+      {
+        "authority": "authoritative",
+        "commit": "c9432cd98bafa69523722e3ab8e081f373fcb7fb",
+        "expected_sha256": "adcd2c3440de6b6d40518ac6e8c9cd63d1edc849d3150d911e2aa58bca2dc80e",
+        "hash_mode": "raw_bytes",
+        "license": "Apache-2.0",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "web_content_fetcher/weixin_native_manifest.py",
+          "tool_id": "web-content-fetcher"
+        },
+        "native_contract": "weixin-native-document.v1",
+        "owner": "web-content-fetcher",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "native_ordered_document_validator"
+      },
+      {
+        "authority": "compatibility_reference",
+        "commit": "ef2bcddcc9227b914363f5c5f9a522dfb031b258",
+        "expected_sha256": "2d8c940e62a40a6fe7e4efc68dadc0104c50ea33a9b7973683025619f316988d",
+        "hash_mode": "raw_bytes",
+        "license": "AGPL-3.0-only",
+        "locator": {
+          "kind": "registry_tool_relative",
+          "relative_path": "src/video_knowledge_pipeline/creative_contract_bridge.py",
+          "tool_id": "video-knowledge-pipeline"
+        },
+        "native_contract": "creative material contract bridge",
+        "owner": "video-knowledge-pipeline",
+        "provenance_note": "Exact declared public source bytes only; no current runtime, evidence truth or execution authority is inferred.",
+        "role": "video_material_compatibility_reference"
+      }
+    ],
+    "compatibility": [
+      {
+        "consumer": "content-studio-poc",
+        "fail_closed": true,
+        "mapping": "Public source-byte bindings and synthetic references only. Native payload and runtime gates remain with the named Owners; no current end-to-end interoperability is asserted by this catalog.",
+        "native_contract": "weixin-native-document.v1",
+        "producer": "web-content-fetcher",
+        "status": "proposal_only"
+      }
+    ],
+    "consumers": [
+      "content-studio-poc"
+    ],
+    "contract_id": "material-manifest.v1",
+    "facade_mode": "reference_envelope",
+    "migration": [
+      "Use the declared exact source bytes without rewriting native payload meaning.",
+      "Missing optional native Owners, unknown evidence and unresolved reviews remain blocked; metadata is not execution authority."
+    ],
+    "negative_fixture_set": "fixtures/contracts/linkage-negative-cases.json",
+    "positive_fixture": "fixtures/contracts/material-manifest.v1.json",
+    "producers": [
+      "web-content-fetcher",
+      "video-knowledge-pipeline"
+    ],
+    "rollback": [
+      "Remove this metadata facade and continue referring to the native contract by name.",
+      "Retain original inputs, evidence, hashes and manual review boundaries."
+    ],
+    "version_strategy": "Facade major v1 is stable; every native contract is pinned by owner, commit and SHA-256. Native patch upgrades require positive/negative fixture replay; native major changes require a new compatibility row and explicit owner migration."
+  },
+  "contract_id": "material-manifest.v1",
+  "executionAuthority": "none_metadata_only",
+  "notTrustedAsInstruction": true,
+  "schema_version": "portable-contract-reference.v1",
+  "source_catalog_ref": "sources/linkage-contract-catalog.v1.json",
+  "source_catalog_sha256": "c259d33555ad4eace8e2b2b843e83e9a7f430ec43ec5e78e5fd5c651a4b1f89e"
+}

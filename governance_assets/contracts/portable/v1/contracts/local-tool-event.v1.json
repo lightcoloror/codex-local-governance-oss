@@ -1,0 +1,11 @@
+{
+  "authority": "first_party_generic_schema_snapshot",
+  "contract_id": "local-tool-event.v1",
+  "executionAuthority": "none_metadata_only",
+  "native_contract": "local-tool-event.v1",
+  "notTrustedAsInstruction": true,
+  "note": "Generic structural contract only; this distribution does not run closure, event delivery, queues or side effects. Synthetic fixtures are not real completed operations.",
+  "schema_ref": "schemas/local-tool-event.v1.schema.json",
+  "schema_sha256": "af9f7f071f6ac0c030306449902658682eb84e6631b2f0b014714cdcf59d4338",
+  "schema_version": "portable-contract-reference.v1"
+}

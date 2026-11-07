@@ -1,0 +1,107 @@
+{
+  "cases": [
+    {
+      "contract": "material-manifest.v1",
+      "expected_error": "material_manifest_integrity_failed",
+      "id": "material-gallery-forbidden",
+      "mutation": "insert_gallery_node"
+    },
+    {
+      "contract": "material-manifest.v1",
+      "expected_error": "unsupported_native_contract",
+      "id": "material-unknown-native-version",
+      "mutation": "unknown_native_contract"
+    },
+    {
+      "contract": "evidence-bundle.v1",
+      "expected_error": "native_schema_validation_failed",
+      "id": "evidence-required-field-missing",
+      "mutation": "remove_schema"
+    },
+    {
+      "contract": "evidence-bundle.v1",
+      "expected_error": "authoritative_source_hash_mismatch",
+      "id": "source-hash-drift",
+      "mutation": "source_hash_mismatch"
+    },
+    {
+      "contract": "content-brief.v1",
+      "expected_error": "native_schema_validation_failed",
+      "id": "content-publication-upgrade",
+      "mutation": "set_mode_published"
+    },
+    {
+      "contract": "content-brief.v1",
+      "expected_error": "native_schema_validation_failed",
+      "id": "content-article-required-field-missing",
+      "mutation": "article_required_field_missing"
+    },
+    {
+      "contract": "content-brief.v1",
+      "expected_error": "native_schema_validation_failed",
+      "id": "content-article-unknown-status",
+      "mutation": "article_unknown_status"
+    },
+    {
+      "contract": "content-brief.v1",
+      "expected_error": "content_publication_boundary_failed",
+      "id": "content-article-publish-upgrade",
+      "mutation": "article_publish_upgrade"
+    },
+    {
+      "contract": "content-brief.v1",
+      "expected_error": "native_schema_validation_failed",
+      "id": "content-article-sensitive-field",
+      "mutation": "article_sensitive_field"
+    },
+    {
+      "contract": "content-brief.v1",
+      "expected_error": "native_schema_validation_failed",
+      "id": "content-article-unauthorized-boundary",
+      "mutation": "article_unauthorized_boundary"
+    },
+    {
+      "contract": "content-brief.v1",
+      "expected_error": "native_schema_validation_failed",
+      "id": "content-article-dependency-empty",
+      "mutation": "article_dependency_empty"
+    },
+    {
+      "contract": "content-brief.v1",
+      "expected_error": "native_schema_validation_failed",
+      "id": "content-article-dependency-invalid-id",
+      "mutation": "article_dependency_invalid_id"
+    },
+    {
+      "contract": "review-packet.v1",
+      "expected_error": "review_packet_invalid",
+      "id": "review-points-incomplete",
+      "mutation": "drop_review_points"
+    },
+    {
+      "contract": "review-packet.v1",
+      "expected_error": "review_packet_invalid",
+      "id": "review-evidence-status-invalid",
+      "mutation": "invalid_evidence_status"
+    },
+    {
+      "contract": "service-profile.v1",
+      "expected_error": "native_schema_validation_failed",
+      "id": "service-state-collapsed",
+      "mutation": "add_single_online_state"
+    },
+    {
+      "contract": "service-profile.v1",
+      "expected_error": "native_schema_validation_failed",
+      "id": "service-action-authorized",
+      "mutation": "authorize_side_effects"
+    },
+    {
+      "contract": "review-packet.v1",
+      "expected_error": "fixture_execution_authority_forbidden",
+      "id": "fixture-grants-execution",
+      "mutation": "fixture_execution_authorized"
+    }
+  ],
+  "schema_version": "linkage-negative-fixtures.v1"
+}

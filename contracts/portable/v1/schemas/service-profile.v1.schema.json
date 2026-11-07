@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "local://local-tools/contracts/service-profile.v1.schema.json",
+  "title": "Local service profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "service_id",
+    "registration",
+    "runtime",
+    "ui",
+    "actionability",
+    "freshness",
+    "invariants"
+  ],
+  "properties": {
+    "schema_version": {"const": "service-profile.v1"},
+    "service_id": {"type": "string", "minLength": 1},
+    "registration": {"$ref": "#/$defs/registration"},
+    "runtime": {"$ref": "#/$defs/runtime"},
+    "ui": {"$ref": "#/$defs/ui"},
+    "actionability": {"$ref": "#/$defs/actionability"},
+    "freshness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall", "checked_at", "ttl_seconds", "source_ref"],
+      "properties": {
+        "overall": {"enum": ["fresh", "stale", "unknown", "not_applicable", "mixed"]},
+        "checked_at": {"type": ["string", "null"]},
+        "ttl_seconds": {"type": ["integer", "null"], "minimum": 1},
+        "source_ref": {"type": "string", "minLength": 1}
+      }
+    },
+    "invariants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registration_is_not_runtime",
+        "runtime_is_not_ui",
+        "runtime_is_not_actionability",
+        "online_is_not_execution_authority",
+        "metadata_authorizes_execution"
+      ],
+      "properties": {
+        "registration_is_not_runtime": {"const": true},
+        "runtime_is_not_ui": {"const": true},
+        "runtime_is_not_actionability": {"const": true},
+        "online_is_not_execution_authority": {"const": true},
+        "metadata_authorizes_execution": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "stateBase": {
+      "type": "object",
+      "required": ["status", "reason_codes", "source_ref", "checked_at", "ttl_seconds", "freshness"],
+      "properties": {
+        "status": {"type": "string"},
+        "reason_codes": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "source_ref": {"type": "string", "minLength": 1},
+        "checked_at": {"type": ["string", "null"]},
+        "ttl_seconds": {"type": ["integer", "null"], "minimum": 1},
+        "freshness": {"enum": ["fresh", "stale", "unknown", "not_applicable"]}
+      }
+    },
+    "registration": {
+      "allOf": [
+        {"$ref": "#/$defs/stateBase"},
+        {"properties": {"status": {"enum": ["registered", "limited", "blocked", "paused", "legacy", "not_registered", "unknown"]}}}
+      ],
+      "unevaluatedProperties": false
+    },
+    "runtime": {
+      "allOf": [
+        {"$ref": "#/$defs/stateBase"},
+        {"properties": {"status": {"enum": ["online", "ready", "stopped", "stopped_by_design", "degraded", "failed", "stale", "not_assessed", "unknown"]}}}
+      ],
+      "unevaluatedProperties": false
+    },
+    "ui": {
+      "allOf": [
+        {"$ref": "#/$defs/stateBase"},
+        {"properties": {"status": {"enum": ["available", "unavailable", "blocked", "metadata_only", "not_applicable", "not_assessed", "unknown"]}}}
+      ],
+      "unevaluatedProperties": false
+    },
+    "actionability": {
+      "allOf": [
+        {"$ref": "#/$defs/stateBase"},
+        {
+          "required": ["authorizes_side_effects"],
+          "properties": {
+            "status": {"enum": ["actionable", "callable_limited", "not_callable", "blocked", "proposal_only", "not_assessed", "unknown"]},
+            "authorizes_side_effects": {"const": false}
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}
